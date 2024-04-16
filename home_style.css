@@ -1,0 +1,296 @@
+body{
+    margin: 0;
+}
+
+.header{
+    background-image: url("images/background/home-bg1.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    overflow-y:auto;
+}
+
+.nav-bar{
+    background: rgba(21,99,146,0.6);
+}
+
+.nav-bar-logo img{
+    width: 90px;
+    vertical-align: middle;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.nav-bar a:not(.nav-bar-icons a){
+    text-decoration: none;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inline-block;
+    text-align: center;
+    padding: 37px 20px 37px 20px;
+    font-size: 15.3px;
+    font-weight: bold; 
+}
+.nav-bar-icons a{
+    padding-top: 37px;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.nav-bar-icons button{
+    padding-top: 37px;
+    padding-left: 10px;
+}
+
+.nav-bar .nav-bar-logo{
+    height: 30px;
+    width: 30px;
+}
+
+.nav-bar-logo{
+    all: unset;
+}
+
+.nav-bar-links-everything{
+    margin-left: 100px;
+}
+
+.nav-bar-icons{
+    padding-left: 20px;
+    float: right;
+    margin-right: 50px;
+}
+
+.nav-bar .nav-search{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inline-block;
+    padding: 37px 20px 37px 20px;
+}
+
+.nav-search form{
+    background-color: rgba(70,84,255,0.6);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 250px;
+    height: 30px;
+}
+
+.nav-search input{
+    all: unset;
+    font-family: system-ui;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+}
+
+.nav-search input::placeholder{
+    color: #fff;
+    opacity: 0.7; 
+}
+
+.nav-search button{
+    all: unset;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+}
+  
+.nav-search svg{
+    color: #fff;
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+}
+
+.nav-bar .nav-bar-icons{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inline-block;
+}
+
+.nav-bar .nav-bar-icons a, .nav-bar .nav-bar-icons button{
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-bar .nav-bar-icons svg{
+    color: white;
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+}
+
+.nav-bar-night, .nav-bar-day{
+    all: unset;
+    cursor: pointer;
+}
+
+.nav-bar-day{
+    display: none;
+}
+
+.nav-bar-night{
+    display: inline-block;
+}
+
+.head-content{
+    padding-left: 52%;
+    padding-top: 10%;
+}
+
+.head-content .head-main-text{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+
+.head-content .head-second-text{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.head-content .head-shop{
+    all: unset;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+    padding: 10px 20px;
+    border: 1px solid white;
+}
+
+.head-content .head-find{
+    all: unset;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+    padding: 10px 20px;
+    margin-left: 15px;
+}
+
+.head-content a{
+    text-decoration: none;
+}
+
+.main-content{
+    width: 100%;
+}
+
+.main-content-4{
+    width: 100%;
+}
+
+.main-content-4 .new-user-offer{
+    width: 79.5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    height: 50vh;
+    background-image: url("images/background/home-bg2.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 7%;
+}
+
+.main-content-4 .new-user-offer .text1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    color: white;
+}
+
+.main-content-4 .new-user-offer .text2{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-top: 2%;
+}
+
+.main-content-4 .new-user-offer .text3{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 37px;
+    font-weight: bold;
+    color: white;
+}
+
+.main-content-4 .new-user-offer .text4{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    color: white;
+}
+
+.main-content-4 .new-user-offer div{
+    padding-left: 7%;
+}
+.main-content-4 .new-user-offer .shop-offer{
+    all: unset;
+    margin-left: 7%;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+    padding: 10px 20px;
+    border: 1px solid white;
+}
+.main-content .main-content-2{
+    margin-top: 60px;
+    width: 100%;    
+}
+
+.main-content .main-content-2 div{
+    width: 25%;
+    display: inline-block;
+    height: 65vh;
+}
+
+.main-content-2-box1{
+    background-color: aqua;
+    margin-left: 10%;
+    margin-right: 2%;
+}
+
+.main-content-2-box2{
+    background-color: black;
+    
+}
+.main-content-2-box3{
+    background-color: blue;
+    margin-left: 2%;
+    margin-right: 10%;
+}
+
+.head-find:hover{
+    color: black;
+    background-color: white;
+}
+
+.head-shop:hover{
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.nav-bar a:hover{
+    opacity: 70%;
+}
+
+.main-content-4 .new-user-offer .shop-offer:hover{
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+}
