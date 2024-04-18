@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Home - Fabrix</title>
-        <link rel="stylesheet" href="home_style.css">
+        <link rel="stylesheet" href="index.css">
         <link rel="icon" href="images/test.png">
     </head>
     <body>
@@ -64,6 +64,32 @@
         </div>
 
         <div class="main-content">
+            <?php
+                $server = "localhost";
+                $username = "root";
+                $password = "";
+                $database = "fabrix";
+
+                $conn = new mysqli($server, $username, $password, $database);
+
+                if($conn->connect_error){
+                    die("Connection failed". $conn->connect_error);
+                }
+                $sql = "SELECT * FROM men";
+                $result = $conn->query($sql);
+                if($result->num_rows >0){
+                    while($row = $result->fetch_assoc()){
+                        $name = $row["name"];
+                        $img_link = $row["img"];
+
+                        echo "
+                            <img src='$img_link' height='200px' width='130px'>
+                            <h3>$name</h3>
+                        ";
+                    }
+                }
+            ?>
+        
             <div class="main-content-2">
                 <div class="main-content-2-box1"></div>
                 <div class="main-content-2-box2"></div>
@@ -79,9 +105,9 @@
                 </div>
             </div>
             <div class="main-content-5">
-                <div class="main-content-5-box1"><img src="images/background/cards/box-1.jpg" alt="box-1" width="370px" height="460px"></div>
-                <div class="main-content-5-box2"><img src="images/background/cards/box-3.jpg" alt="box-2" width="370px" height="460px"></div>
-                <div class="main-content-5-box3"><img src="images/background/cards/box-2.jpeg" alt="box-3" width="370px" height="460px"></div>
+                <div class="main-content-5-box1"></div>
+                <div class="main-content-5-box2"></div>
+                <div class="main-content-5-box3"></div>
             </div>
             <div class="box">
                 <div class="box1">

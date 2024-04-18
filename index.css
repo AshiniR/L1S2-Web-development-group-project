@@ -320,29 +320,31 @@ body {
     border: 1px solid black;
 }
 
-.main-content .main-content-5{
+.main-content .main-content-5 {
     margin-top: 60px;
-    width: 100%;    
+    width: 100%;
 }
 
-.main-content .main-content-5 div{
+.main-content .main-content-5 div {
     width: 25%;
     display: inline-block;
     height: 65vh;
 }
 
-.main-content-5-box1{
+.main-content-5-box1 {
+    background-color: red;
     margin-left: 10%;
     margin-right: 2%;
 }
 
-.main-content-5-box2{
-    
+.main-content-5-box2 {
+    background-color: green;
 }
 
-.main-content-5-box3{
+.main-content-5-box3 {
     margin-left: 2%;
     margin-right: 10%;
+    background-color: blue;
 }
 
 .footer {
