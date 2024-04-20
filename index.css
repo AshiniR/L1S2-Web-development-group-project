@@ -332,9 +332,12 @@ body {
 }
 
 .main-content-5-box1 {
-    background-color: red;
+    background-image: url("images/cards/card-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     margin-left: 10%;
     margin-right: 2%;
+    opacity: 80%;
 }
 
 .main-content-5-box2 {
