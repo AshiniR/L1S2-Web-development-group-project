@@ -51,3 +51,30 @@ span {
     display: inline-block;
     height: 50vh;
 }
+
+.items .item-box .image{
+    width: 100%;
+    height: 70%;
+    background-image: url("../images/cards/card-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.items .item-box .name, .items .item-box .price, .items .item-box .category{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.items .item-box .details .name{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.items .item-box .details .price{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.items .item-box .details .category{
+    font-size: 12px;
+    color: rgb(44, 44, 44);
+}
