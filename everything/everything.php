@@ -29,8 +29,25 @@
                 </form>
 
                 <span class="filter-text">Filter Items</span>
+
                 <form id="form2" class="filter">
-                    <input type="text" name="" id="">
+                    <span class="filter_price">Filter by Price</span><br>
+                    <?php
+                    if (isset($_GET['min'])) {
+                        $min = $_GET['min'];
+                        $max = $_GET['max'];
+                    } else {
+                        $min = '';
+                        $max = '';
+                    }
+                    echo
+                    "<input type='number' name='min' id='min' min='0' placeholder='MIN' value='$min'>
+                        <span> -</span>
+                        <input type='number' name='max' id='max' min='0' placeholder='MAX' value='$max'>";
+                    ?>
+                    <br><br>
+                    <input type="submit" name="submit" class="filter-btn" id="submit" value="Filter">
+                    <input type="reset" name="reset" class="filter-btn" id="reset" value="Reset">
                 </form>
             </div>
 
@@ -38,16 +55,45 @@
 
         <div class="part2">
             <div class="text">
-                <h1>EVERYTHING</h1>
-                <span>Browse every items in our shop...</span>
+                <h1 id='upper-text'>EVERYTHING</h1>
             </div>
             <div class="items">
                 <?php
-                if (isset($_GET['search']) && !empty($_GET['search'])) {
+                if ((isset($_GET['search']) && !empty($_GET['search']))) {
                     $search_text = $conn->real_escape_string($_GET['search']);
-                    $sql = "SELECT * FROM men WHERE name LIKE '%$search_text%'";
+                    if (isset($_GET['min']) || isset($_GET['max'])) {
+                        if ((!empty($_GET['min'])) && (!empty($_GET['max']))) {
+                            $min = $_GET['min'];
+                            $max = $_GET['max'];
+                            $sql = "SELECT * FROM men WHERE name LIKE '%$search_text%' AND price BETWEEN $min AND $max";
+                        } else if (!empty($_GET['min'])) {
+                            $min = $_GET['min'];
+                            $sql = "SELECT * FROM men WHERE name LIKE '%$search_text%' AND $min<=price";
+                        } else if (!empty($_GET['max'])) {
+                            $max = $_GET['max'];
+                            $sql = "SELECT * FROM men WHERE name LIKE '%$search_text%' AND $max>=price";
+                        }
+                    } else {
+                        $sql = "SELECT * FROM men WHERE name LIKE '%$search_text%'";
+                    }
+                    $text_result = $_GET['search'];
                 } else {
-                    $sql = "SELECT * FROM men";
+                    if (isset($_GET['min']) || isset($_GET['max'])) {
+                        if ((!empty($_GET['min'])) && (!empty($_GET['max']))) {
+                            $min = $_GET['min'];
+                            $max = $_GET['max'];
+                            $sql = "SELECT * FROM men WHERE price BETWEEN $min AND $max";
+                        } else if (!empty($_GET['min'])) {
+                            $min = $_GET['min'];
+                            $sql = "SELECT * FROM men WHERE $min<=price";
+                        } else if (!empty($_GET['max'])) {
+                            $max = $_GET['max'];
+                            $sql = "SELECT * FROM men WHERE $max>=price";
+                        }
+                    } else {
+                        $sql = "SELECT * FROM men";
+                    }
+                    $text_result = 'ALL ITEMS';
                 }
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
@@ -55,20 +101,31 @@
                         $name = $row['name'];
                         $img = $row['img'];
                         $tag = $row['id'];
+                        $price = $row['price'];
+                        $category = $row['category'];
                         echo "
+                        <a href='item-details.php?$tag'>
                         <div class='item-box'>
-                            <div class='image' id='image$tag'></div>
-                            <div class='details'>
-                                <span class='name'>$name</span><br>
-                                <span class='category'>men</span><br>
-                                <span class='price'>price</span>
-                            </div>
+                                <div class='image' id='image$tag'></div>
+                                <div class='details'>
+                                    <span class='name'>$name</span><br>
+                                    <span class='category'>$category</span><br>
+                                    <span class='price'>$price USD</span>
+                                </div>
                         </div>
+                        </a>
                         <script>
-                            document.getElementById('image$tag').style.backgroundImage = \"url('$img')\";
+                            document.getElementById('image$tag').style.backgroundImage = \"url('../$img')\";
+                            document.getElementById('upper-text').innerHTML = 'SHOW RESULTS: $text_result';
                         </script>
                             ";
                     }
+                } else {
+                    echo "
+                        <script>
+                            document.getElementById('upper-text').innerHTML = 'NO RESULTS FOR \'$text_result\'';
+                        </script>
+                    ";
                 }
                 ?>
             </div>
