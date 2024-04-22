@@ -40,11 +40,12 @@ span {
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
     color: black;
+    font-size: 23px;
 }
 
 .items {
     width: 100%;
-    margin: 120px 4% 0 3%;
+    margin: 60px 4% 0 3%;
     height: auto;
 }
 
@@ -96,7 +97,7 @@ span {
     margin-right: auto;
 }
 
-.page_filter .page_search {
+.page_filter .search-form {
     background-color: white;
     border-radius: 5px;
     display: flex;
@@ -105,7 +106,7 @@ span {
     height: 30px;
 }
 
-.page_filter .page_search input {
+.page_filter .search-form input {
     all: unset;
     font-family: system-ui;
     color: black;
@@ -114,12 +115,12 @@ span {
     padding: 6px 10px;
 }
 
-.page_filter .page_search input::placeholder {
+.page_filter .search-form input::placeholder {
     color: black;
     opacity: 0.7;
 }
 
-.page_filter .page_search button {
+.page_filter .search-form button {
     all: unset;
     cursor: pointer;
     width: 35px;
@@ -144,17 +145,13 @@ span {
     font-weight: bold;
 }
 
-.part1 .page_filter .filter {
-    margin-top: 15px;
-}
-
-.part1 .page_filter .filter #min,
-.part1 .page_filter .filter #max {
+.part1 .page_filter .form #min,
+.part1 .page_filter .form #max {
     width: 80px;
     height: 25px;
 }
 
-.part1 .page_filter .filter .filter_price {
+.part1 .page_filter .form .filter_price {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
