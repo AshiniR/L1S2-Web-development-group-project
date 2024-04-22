@@ -52,29 +52,80 @@ span {
     height: 50vh;
 }
 
-.items .item-box .image{
+.items .item-box .image {
     width: 100%;
     height: 70%;
-    background-image: url("../images/cards/card-1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.items .item-box .name, .items .item-box .price, .items .item-box .category{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.items .item-box .name,
+.items .item-box .price,
+.items .item-box .category {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 }
 
-.items .item-box .details .name{
+.items .item-box .details .name {
     font-size: 25px;
     font-weight: bold;
 }
 
-.items .item-box .details .price{
+.items .item-box .details .price {
     font-size: 18px;
     font-weight: bold;
 }
 
-.items .item-box .details .category{
+.items .item-box .details .category {
     font-size: 12px;
     color: rgb(44, 44, 44);
+}
+
+.part1 .page_filter {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    padding-top: 10%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page_filter .page_search {
+    background-color: rgba(225, 226, 234, 0.6);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+}
+
+.page_filter .page_search input {
+    all: unset;
+    font-family: system-ui;
+    color: black;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+}
+
+.page_filter .page_search input::placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.page_filter .page_search button {
+    all: unset;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+}
+
+.page_filter svg {
+    color: black;
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+    padding: 6px;
 }
