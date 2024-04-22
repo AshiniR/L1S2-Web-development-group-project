@@ -48,9 +48,9 @@
                         $max = '';
                     }
                     echo
-                    "<input type='number' name='min' id='min' min='0' placeholder='MIN' value='$min'>
+                    "<input type='number' step='0.01' name='min' id='min' min='0' placeholder='MIN' value='$min'>
                             <span> -</span>
-                            <input type='number' name='max' id='max' min='0' placeholder='MAX' value='$max'>";
+                            <input type='number' step='0.01' name='max' id='max' min='0' placeholder='MAX' value='$max'>";
                     ?>
                     <br><br>
                     <input type="submit" name="submit" class="filter-btn" id="submit" value="Filter">
@@ -114,16 +114,18 @@
                         $price = $row['price'];
                         $category = $row['category'];
                         echo "
-                        <a href='item-details.php?$tag'>
                         <div class='item-box'>
+                            <a href='item-details.php?$tag'>
                                 <div class='image' id='image$tag'></div>
-                                <div class='details'>
+                            </a>
+                            <div class='details'>
+                                <a href='item-details.php?$tag'>
                                     <span class='name'>$name</span><br>
-                                    <span class='category'>$category</span><br>
-                                    <span class='price'>$price USD</span>
-                                </div>
+                                </a>
+                                <span class='category'>$category</span><br>
+                                <span class='price'>$price USD</span>
+                            </div>
                         </div>
-                        </a>
                         <script>
                             document.getElementById('image$tag').style.backgroundImage = \"url('../$img')\";
                             document.getElementById('upper-text').innerHTML = 'SHOW RESULTS: \'$text_result\'';
