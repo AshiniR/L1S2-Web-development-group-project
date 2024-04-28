@@ -4,156 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .nav-bar {
-            background: white;
-        }
-
-        .nav-bar-logo img {
-            width: 90px;
-            vertical-align: middle;
-            margin-left: 20px;
-            cursor: pointer;
-        }
-
-        .nav-bar a:not(.nav-bar-icons a, .nav-bar-links-everything) {
-            text-decoration: none;
-            color: black;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-                sans-serif;
-            display: inline-block;
-            text-align: center;
-            padding: 37px 20px 37px 20px;
-            font-size: 15.3px;
-            font-weight: bold;
-        }
-
-        .nav-bar-icons a {
-            padding-top: 37px;
-            padding-left: 10px;
-            display: inline-block;
-        }
-
-        .nav-bar-icons button {
-            padding-top: 37px;
-            padding-left: 10px;
-        }
-
-        .nav-bar .nav-bar-logo {
-            height: 30px;
-            width: 30px;
-        }
-
-        .nav-bar-logo {
-            all: unset;
-        }
-
-        .nav-bar-links-everything {
-            text-decoration: none;
-            color: rgb(70, 84, 255);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-                sans-serif;
-            display: inline-block;
-            text-align: center;
-            padding: 37px 20px 37px 20px;
-            font-size: 15.3px;
-            font-weight: bold;
-            margin-left: 100px;
-        }
-
-        .nav-bar-icons {
-            padding-left: 20px;
-            float: right;
-            margin-right: 50px;
-        }
-
-        .nav-bar .nav-search {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-                sans-serif;
-            display: inline-block;
-            padding: 37px 20px 37px 20px;
-        }
-
-        .nav-search form {
-            background-color: rgba(70, 84, 255, 0.6);
-            border-radius: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 250px;
-            height: 30px;
-        }
-
-        .nav-search input {
-            all: unset;
-            font-family: system-ui;
-            color: black;
-            height: 100%;
-            width: 100%;
-            padding: 6px 10px;
-        }
-
-        .nav-search input::placeholder {
-            color: black;
-            opacity: 0.7;
-        }
-
-        .nav-search button {
-            all: unset;
-            cursor: pointer;
-            width: 35px;
-            height: 35px;
-        }
-
-        .nav-search svg {
-            color: black;
-            fill: currentColor;
-            width: 24px;
-            height: 24px;
-            padding: 6px;
-        }
-
-        .nav-bar .nav-bar-icons {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-                sans-serif;
-            display: inline-block;
-        }
-
-        .nav-bar .nav-bar-icons a,
-        .nav-bar .nav-bar-icons button {
-            text-decoration: none;
-            margin-left: 20px;
-        }
-
-        .nav-bar .nav-bar-icons svg {
-            color: black;
-            vertical-align: middle;
-            width: 22px;
-            height: 22px;
-        }
-
-        .nav-bar-night,
-        .nav-bar-day {
-            all: unset;
-            cursor: pointer;
-        }
-
-        .nav-bar-day {
-            display: none;
-        }
-
-        .nav-bar-night {
-            display: inline-block;
-        }
-
-        .nav-bar a:hover {
-            opacity: 70%;
-        }
-    </style>
+    <link rel="stylesheet" href="everything-navbar.css">
 </head>
 
 <body>
@@ -176,16 +27,16 @@
                     <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
                 </svg>
             </button>
-            <a href="" class="nav-bar-wishlist" title="whishlist">
+            <button class="nav-bar-wishlist">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
                 </svg>
-            </a>
-            <a href="" class="nav-bar-cart" title="cart">
+            </button>
+            <button class="nav-bar-cart" title="cart">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
                     <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
                 </svg>
-            </a>
+            </button>
             <a href="" class="nav-bar-user" title="user profile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
@@ -194,6 +45,8 @@
             </a>
         </div>
     </div>
+
+    <?php require '../cart.php'; ?>
 </body>
 
 </html>

@@ -39,16 +39,16 @@
                             <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
                         </svg>
                     </button>
-                    <a href="" class="nav-bar-wishlist" title="whishlist">
+                    <button class="nav-bar-wishlist">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
                         </svg>
-                    </a>
-                    <a href="" class="nav-bar-cart" title="cart">
+                    </button>
+                    <button class="nav-bar-cart" title="cart">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
                         </svg>
-                    </a>
+                    </button>
                     <a href="" class="nav-bar-user" title="user profile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
@@ -151,6 +151,92 @@
         </div>
         <div class="footer-last">© 2023 Fabrix, Inc. All Rights Reserved</div>
     </div>
+
+    <div class="bg"></div>
+    <div class="cart">
+        <div class="close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+        </div>
+        <div class="cart-text"><br>
+            <span class="cart-text">CART</span>
+            <hr>
+        </div>
+
+        <div class="cart-items">
+
+            <div class="cart-item-card">
+                <div class="cart-img"></div>
+                <div class="cart-item-details">
+                    <div class="item-name">Sample Name</div>
+                    <div class="item-price">100 USD</div>
+                    <div class="item-count">item count - 3</div>
+                    <div class="item-total">Total - 300 USD</div>
+                </div>
+            </div><br>
+            <div class="cart-item-card">
+                <div class="cart-img"></div>
+                <div class="cart-item-details">
+                    <div class="item-name">Sample Name</div>
+                    <div class="item-price">100 USD</div>
+                    <div class="item-count">item count - 3</div>
+                    <div class="item-total">Total - 300 USD</div>
+                </div>
+            </div><br>
+            <div class="cart-item-card">
+                <div class="cart-img"></div>
+                <div class="cart-item-details">
+                    <div class="item-name">Sample Name</div>
+                    <div class="item-price">100 USD</div>
+                    <div class="item-count">item count - 3</div>
+                    <div class="item-total">Total - 300 USD</div>
+                </div>
+            </div><br>
+            <div class="cart-item-card">
+                <div class="cart-img"></div>
+                <div class="cart-item-details">
+                    <div class="item-name">Sample Name</div>
+                    <div class="item-price">100 USD</div>
+                    <div class="item-count">item count - 3</div>
+                    <div class="item-total">Total - 300 USD</div>
+                </div>
+            </div><br>
+            <div class="cart-item-card">
+                <div class="cart-img"></div>
+                <div class="cart-item-details">
+                    <div class="item-name">Sample Name</div>
+                    <div class="item-price">100 USD</div>
+                    <div class="item-count">item count - 3</div>
+                    <div class="item-total">Total - 300 USD</div>
+                </div>
+            </div><br>
+        </div>
+        <div class="cart-info">
+            <span class="cart-total">Total - 300 USD</span><br>
+            <button>PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = document.querySelector(".cart");
+        let cartBtn = document.querySelector(".nav-bar-cart");
+        let closeBtn = document.querySelector(".close-btn");
+        let body = document.querySelector("body");
+        let header = document.querySelector('.header');
+
+        cartBtn.addEventListener("click", () => {
+            body.classList.toggle("cartShow");
+            body.style.overflow = 'hidden';
+            header.style.animation = 'opa ease forwards 0.4s';
+        });
+        closeBtn.addEventListener("click", () => {
+            body.classList.remove("cartShow");
+            body.style.overflow = 'auto';
+            header.style.animation = 'opa2 ease forwards 0.4s';
+        });
+    </script>
 </body>
 
 </html>

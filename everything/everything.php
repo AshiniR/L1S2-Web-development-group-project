@@ -116,7 +116,9 @@
                         echo "
                         <div class='item-box'>
                             <a href='item-details.php?$tag'>
-                                <div class='image' id='image$tag'></div>
+                                <div class='image' id='image$tag'>
+                                <img src='../$img'>
+                                </div>
                             </a>
                             <div class='details'>
                                 <a href='item-details.php?$tag'>
