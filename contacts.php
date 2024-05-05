@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Clothing Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="nav-bar">
-        <a href="../index.php" class="nav-bar-logo"><img src="../images/logo/logo-b.png" alt="logo-white.png" width="180px"></a>
-        <a href="../everything/everything.php" class="nav-bar-links-everything">EVERYTHING</a>
-        <a href="../women/women.php" class="nav-bar-links">WOMEN</a>
-        <a href="../men/men.php" class="nav-bar-links">MEN</a>
-        <a href="../about.php" class="nav-bar-links-about">ABOUT</a>
-        <a href="../contacts.php" class="nav-bar-links-contact">CONTACT US</a>
+        <a href="index.php" class="nav-bar-logo"><img src="images/logo/logo-b.png" alt="logo-white.png" width="180px"></a>
+        <a href="everything/everything.php" class="nav-bar-links-everything">EVERYTHING</a>
+        <a href="women/women.php" class="nav-bar-links">WOMEN</a>
+        <a href="men/men.php" class="nav-bar-links">MEN</a>
+        <a href="about.php" class="nav-bar-links-about">ABOUT</a>
+        <a href="contacts.php" class="nav-bar-links-contact">CONTACT US</a>
         <div class="nav-bar-icons">
             <button href="" class="nav-bar-night" title="dark mode">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
@@ -49,70 +51,24 @@
             <form>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-                
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-                
+
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" required>
-                
+
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
-                
+
                 <button type="submit">Send</button>
             </form>
         </section>
     </main>
-    <div class="footer">
-        <div class="ul1">
-            <div class="li1">MAY WE HELP YOU?</div><br>
-            <div class="li-content">Contact Us</div>
-            <div class="li-content">My Order</div>
-            <div class="li-content">FAQs</div>
-            <div class="li-content">Email Unsubscribe</div>
-            <div class="li-content">Sitemap</div>
-        </div>
-        <div class="ul2">
-            <div class="li1">THE COMPANY</div><br>
-            <div class="li-content">About Fabrix</div>
-            <div class="li-content">Code of Ethics</div>
-            <div class="li-content">Careers</div>
-            <div class="li-content">Legal</div>
-            <div class="li-content">Corporate Information</div>
-        </div>
-        <div class="ul3">
-            <div class="li1">Fabrix SERVICES</div><br>
-            <div class="li-content">Discover our services</div>
-            <div class="li-content">Discover our services</div>
-            <div class="li-content">Book an Appointment</div>
-            <div class="li-content">Collect In-Store</div>
-        </div><br><br>
-        <div class="footer-logo">
-            <div>F</div>
-            <div>A</div>
-            <div>B</div>
-            <div>R</div>
-            <div>I</div>
-            <div>X</div>
-        </div>
-        <div class="social-media">
-            <a href="#"><img src="images/icons/twiiter.png" alt="twitter" width="70px" height="40px"></a>
-            <a href="#" class="footer-icon1"><img src="images/icons/facebook.png" alt="facebook" width="70px" height="50px"></a>
-            <a href="#" class="footer-icon2"><img src="images/icons/youtube.png" alt="youtube" width="55px" height="45px"></a>
-            <a href="#" class="footer-icon3"><img src="images/icons/insragram.png" alt="instragram" width="70px" height="50px"></a>
-        </div>
-        <div class="footer-last">© 2023 Fabrix, Inc. All Rights Reserved</div>
-    </div>
-    
-    <!-- Cart Modal -->
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Cart</h2>
-            <p>Your cart is currently empty.</p>
-        </div>
-    </div>
+
+    <?php require 'cart.php' ?>
 
     <script src="script.js"></script>
 </body>
+
 </html>

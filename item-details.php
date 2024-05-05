@@ -389,21 +389,44 @@
                         <a href='women/women.php'>$category</a>
                     </div>
                     <h1 class='anchor'>$name</h1>
-                    <p class='p-price'><span class='price'>$price</span>
+                    <p class='p-price'><span class='price'>$price USD</span>
                         <span class='shipping'>+Free Shipping</span>
                     </p>
                         <br><br>
-                        <form action='item-details.php?id=$id'>
                         <hr class='hori-line'>
-                        <input type='number' value='1' min='1' class='no-box' id='num'>
-                        <button class='cartbtn' id='cb'>ADD TO CART</button>
+                        <a href='item-details.php?id=$id&add=$id'>
+                        <button class='cartbtn' id='cb'>ADD TO CART</button></a>
                         <hr class='hori-buttom'>
-                        </form>
-            
                 </div>
             </div>";
             }
         }
+    }
+    ?>
+
+    <?php
+    if (isset($_GET['add']) && !empty($_GET['add']) && isset($_SESSION['useruid'])) {
+        $userID = $_SESSION['userid'];
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM usercart WHERE Userid=$userID AND item=$id;";
+        $res1 = $conn->query($sql);
+        if ($res1) {
+            $x = $res1->num_rows;
+            if ($x > 0) {
+                $count = $x + 1;
+                $sql_ = "UPDATE usercart SET count = $count WHERE Userid=$userID AND item=$id;";
+            } else {
+                $sql_ = "INSERT INTO usercart (Userid, item,count) VALUES ($userID, $id, 1);";
+            }
+            $res2 = $conn->query($sql_);
+            if ($res2) {
+                echo "<script>alert('Added to the cart!!');</script>";
+            } else {
+                echo "<script>alert('Something went wrong!!');</script>";
+            }
+        }
+    } else if (isset($_GET['add']) && !empty($_GET['add'])) {
+        echo "<script>alert('Please Log In !!');</script>";
     }
     ?>
     <button class="top" title="move to top">

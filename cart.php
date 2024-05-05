@@ -54,28 +54,25 @@
 
         .cart .cart-info {
             height: 35%;
-            background-color: red;
+            background-color: rgb(200, 237, 237);
         }
 
         .cart .cart-items .cart-item-card {
             width: 100%;
             height: 20%;
-            background-color: yellow;
             position: relative;
         }
 
         .cart .cart-items .cart-item-card .cart-img {
             float: left;
-            background-color: aliceblue;
-            width: 50%;
+            width: 30%;
+            margin-right: 20px;
             height: 100%;
+            background-position: center;
+            background-size: cover;
         }
 
-        .cart .cart-items .cart-item-card .cart-img {
-            width: 25%;
-            height: 100%;
-            background-color: blue;
-        }
+
 
         .cart .cart-items .cart-item-card div {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -163,27 +160,38 @@
             <?php
             $tot = 0;
             if (isset($_SESSION['useruid'])) {
-                $sql2 = "SELECT * FROM everything W";
+                $userID = $_SESSION['userid'];
+                $sql2 = "SELECT * FROM usercart WHERE Userid = $userID";
                 $res = $conn->query($sql2);
                 if ($res->num_rows > 0) {
                     while ($row = $res->fetch_assoc()) {
-                        $name = $row['name'];
-                        $img = $row['img'];
-                        $tag = $row['id'];
-                        $price = $row['price'] * $row['count'];
-                        $category = $row['category'];
+                        $tag = $row['item'];
                         $count = $row['count'];
+                        $s = "SELECT * FROM everything WHERE id=$tag";
+                        $r = $conn->query($s);
+                        $rw = $r->fetch_assoc();
+                        $price = $rw['price'] * $row['count'];
+                        $img = $rw['img'];
+                        $name = $rw['name'];
+                        $category = $rw['category'];
                         $tot = $tot + $price;
 
                         echo "<div class='cart-item-card'>
-                        <div class='cart-img'></div>
+                        <div class='cart-img' id='img$tag'></div>
                         <div class='cart-item-details'>
                             <div class='item-name'>$name</div>
                             <div class='item-price'>$price USD</div>
                             <div class='item-count'>item count - $count</div>
                             <div class='item-total'>Total - $price USD</div>
                         </div>
-                    </div><br>";
+                    </div><br>
+                    
+                    <script>
+                    let x= document.getElementById('img$tag');
+                    x.style.backgroundImage = 'url(\"$img\")';
+                    </script>
+
+                    ";
                     }
                 }
             }

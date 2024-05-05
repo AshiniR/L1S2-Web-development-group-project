@@ -445,27 +445,22 @@ body {
 
 .cart .cart-info {
     height: 25%;
-    background-color: red;
+    background-color: rgb(200, 237, 237);
 }
 
 .cart .cart-items .cart-item-card {
     width: 100%;
     height: 20%;
-    background-color: yellow;
     position: relative;
 }
 
 .cart .cart-items .cart-item-card .cart-img {
     float: left;
-    background-color: aliceblue;
-    width: 50%;
+    width: 30%;
     height: 100%;
-}
-
-.cart .cart-items .cart-item-card .cart-img {
-    width: 25%;
-    height: 100%;
-    background-color: blue;
+    background-position: center;
+    background-size: cover;
+    margin-right: 20px;
 }
 
 .cart .cart-items .cart-item-card div {
