@@ -27,3 +27,6 @@ Workload -
 225504K - Contact us page
 
 224200R - About us page
+
+(To fetch selling items, first need to import the database called fabrix)
+(Note - Some cart functions are still developing)
