@@ -16,3 +16,14 @@ Group Members -
 
 224200R - Umair N A
 
+Workload -
+
+225520F - Home page without footer, search/filter functions , Move to top button, everything page
+
+225507X - Login system, footer, men page
+
+225517D - Item details page, link pages, women page
+
+225504K - Contact us page
+
+224200R - About us page
