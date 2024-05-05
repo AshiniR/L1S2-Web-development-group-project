@@ -12,7 +12,27 @@ body {
 .main-content div {
     height: auto;
 }
+.top {
+    all: unset;
+    position: fixed;
+    z-index: 1000;
+    bottom: 25px;
+    right: 25px;
+    background-color: white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    display: none;
+    border: 2px solid black;
+}
 
+.top svg {
+    text-align: center;
+    height: 32px;
+    width: 32px;
+    padding: 8px;
+}
 .part1 {
     margin-top: 50px;
     margin-left: 8%;
@@ -167,27 +187,7 @@ span {
     display: inline-block;
     padding-bottom: 5px;
 }
-.top {
-    all: unset;
-    position: fixed;
-    z-index: 1000;
-    bottom: 25px;
-    right: 25px;
-    background-color: white;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    display: none;
-    border: 2px solid black;
-}
 
-.top svg {
-    text-align: center;
-    height: 32px;
-    width: 32px;
-    padding: 8px;
-}
 .filter-btn {
     all: unset;
     margin-right: 5px;

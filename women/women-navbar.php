@@ -8,14 +8,14 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="everything-navbar.css">
+    <link rel="stylesheet" href="women-navbar.css">
 </head>
 
 <body>
     <div class="nav-bar">
         <a href="../index.php" class="nav-bar-logo"><img src="../images/logo/logo-b.png" alt="logo-white.png" width="180px"></a>
-        <a href="everything.php" class="nav-bar-links-everything">EVERYTHING</a>
-        <a href="../women/women.php" class="nav-bar-links">WOMEN</a>
+        <a href="../everything/everything.php" class="nav-bar-links-everything">EVERYTHING</a>
+        <a href="women.php" class="nav-bar-links" id="women">WOMEN</a>
         <a href="../men/men.php" class="nav-bar-links">MEN</a>
         <a href="../about.php" class="nav-bar-links-about">ABOUT</a>
         <a href="../contacts.php" class="nav-bar-links-contact">CONTACT US</a>

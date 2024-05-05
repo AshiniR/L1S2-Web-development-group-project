@@ -1,0 +1,134 @@
+.nav-bar {
+    background: white;
+}
+
+.nav-bar-logo img {
+    width: 90px;
+    vertical-align: middle;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.nav-bar a:not(.nav-bar-icons a, .nav-bar-links-everything),
+.nav-bar-cart {
+    text-decoration: none;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    display: inline-block;
+    text-align: center;
+    padding: 37px 20px 37px 20px;
+    font-size: 15.3px;
+    font-weight: bold;
+}
+
+.nav-bar-cart,
+.nav-bar-wishlist {
+    all: unset;
+    cursor: pointer;
+}
+
+.nav-bar-icons a,
+.nav-bar-cart,
+.nav-bar-wishlist {
+    padding-top: 37px;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.nav-bar-icons button:not(.nav-bar-cart, .nav-bar-wishlist) {
+    padding-top: 37px;
+    padding-left: 10px;
+}
+
+.nav-bar .nav-bar-logo {
+    height: 30px;
+    width: 30px;
+}
+
+.nav-bar-logo {
+    all: unset;
+}
+
+#women {
+    color: rgb(70, 84, 255);
+}
+
+.nav-bar-links-everything {
+    text-decoration: none;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    display: inline-block;
+    text-align: center;
+    padding: 37px 20px 37px 20px;
+    font-size: 15.3px;
+    font-weight: bold;
+    margin-left: 100px;
+}
+
+.nav-bar-icons {
+    padding-left: 20px;
+    float: right;
+    margin-right: 50px;
+}
+
+.nav-bar .nav-bar-icons {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    display: inline-block;
+}
+
+.nav-bar .nav-bar-icons a,
+.nav-bar .nav-bar-icons button {
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-bar .nav-bar-icons svg {
+    color: black;
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+}
+
+.nav-bar-night,
+.nav-bar-day {
+    all: unset;
+    cursor: pointer;
+}
+
+.nav-bar-day {
+    display: none;
+}
+
+.nav-bar-night {
+    display: inline-block;
+}
+
+.nav-bar a:hover:not(#women),
+.nav-bar-icons button svg:hover,
+.nav-bar-icons a svg:hover {
+    animation: colorH 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes colorH {
+    from {
+        color: black;
+    }
+    to {
+        color: rgb(70, 84, 255);
+    }
+}

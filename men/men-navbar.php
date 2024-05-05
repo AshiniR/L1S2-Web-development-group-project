@@ -8,15 +8,15 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="everything-navbar.css">
+    <link rel="stylesheet" href="men-navbar.css">
 </head>
 
 <body>
     <div class="nav-bar">
         <a href="../index.php" class="nav-bar-logo"><img src="../images/logo/logo-b.png" alt="logo-white.png" width="180px"></a>
-        <a href="everything.php" class="nav-bar-links-everything">EVERYTHING</a>
+        <a href="../everything/everything.php" class="nav-bar-links-everything">EVERYTHING</a>
         <a href="../women/women.php" class="nav-bar-links">WOMEN</a>
-        <a href="../men/men.php" class="nav-bar-links">MEN</a>
+        <a href="men.php" class="nav-bar-links" id="men">MEN</a>
         <a href="../about.php" class="nav-bar-links-about">ABOUT</a>
         <a href="../contacts.php" class="nav-bar-links-contact">CONTACT US</a>
         <div class="nav-bar-icons">
@@ -42,18 +42,18 @@ session_start();
                 </svg>
             </button>
             <?php
-            if (isset($_SESSION["useruid"])) {
-                echo '<a href = "" class="nav-bar-user">' . $_SESSION["useruid"] . '</a>';
-                echo '<a href = "../includes/logout.inc.php" class="nav-bar-user">Logout </a>';
-            } else {
-                echo '<a href="../login.php" class="nav-bar-user" title="user profile">Login
+                    if (isset($_SESSION["useruid"])) {
+                        echo '<a href = "" class="nav-bar-user">' . $_SESSION["useruid"] . '</a>';
+                        echo '<a href = "../includes/logout.inc.php" class="nav-bar-user">Logout </a>';
+                    } else {
+                        echo '<a href="../login.php" class="nav-bar-user" title="user profile">Login
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                             </svg>
                             </a>';
-            }
-            ?>
+                    }
+                    ?>
         </div>
     </div>
 

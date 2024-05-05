@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="everything.css" />
-    <title>everything</title>
+    <link rel="stylesheet" href="women.css" />
+    <title>men</title>
 </head>
 
 <body>
     <div class="header">
-        <?php require "everything-navbar.php" ?>
+        <?php require "women-navbar.php" ?>
     </div>
 
     <div class="main-content">
@@ -71,18 +71,18 @@
                         if ((!empty($_GET['min'])) && (!empty($_GET['max']))) {
                             $min = $_GET['min'];
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND price BETWEEN $min AND $max";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND price BETWEEN $min AND $maxAND category='women'";
                         } else if (!empty($_GET['min'])) {
                             $min = $_GET['min'];
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $min<=price";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $min<=price AND category='women'";
                         } else if (!empty($_GET['max'])) {
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $max>=price";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $max>=price AND category='women'";
                         } else {
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%'";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND category='women'";
                         }
                     } else {
-                        $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%'";
+                        $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND category='women'";
                     }
                     $text_result = $_GET['search'];
                 } else {
@@ -90,18 +90,18 @@
                         if ((!empty($_GET['min'])) && (!empty($_GET['max']))) {
                             $min = $_GET['min'];
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE price BETWEEN $min AND $max";
+                            $sql = "SELECT * FROM everything WHERE price BETWEEN $min AND $max AND category='women'";
                         } else if (!empty($_GET['min'])) {
                             $min = $_GET['min'];
-                            $sql = "SELECT * FROM everything WHERE $min<=price";
+                            $sql = "SELECT * FROM everything WHERE $min<=price AND category='women'";
                         } else if (!empty($_GET['max'])) {
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE $max>=price";
+                            $sql = "SELECT * FROM everything WHERE $max>=price AND category='women'";
                         } else {
-                            $sql = "SELECT * FROM everything";
+                            $sql = "SELECT * FROM everything WHERE category='women'";
                         }
                     } else {
-                        $sql = "SELECT * FROM everything";
+                        $sql = "SELECT * FROM everything WHERE category='women'";
                     }
                     $text_result = 'ALL ITEMS';
                 }

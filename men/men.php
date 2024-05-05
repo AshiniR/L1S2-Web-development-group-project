@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="everything.css" />
-    <title>everything</title>
+    <link rel="stylesheet" href="men.css" />
+    <title>men</title>
 </head>
 
 <body>
     <div class="header">
-        <?php require "everything-navbar.php" ?>
+        <?php require "men-navbar.php" ?>
     </div>
 
     <div class="main-content">
@@ -71,18 +71,18 @@
                         if ((!empty($_GET['min'])) && (!empty($_GET['max']))) {
                             $min = $_GET['min'];
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND price BETWEEN $min AND $max";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND price BETWEEN $min AND $maxAND category='men'";
                         } else if (!empty($_GET['min'])) {
                             $min = $_GET['min'];
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $min<=price";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $min<=price AND category='men'";
                         } else if (!empty($_GET['max'])) {
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $max>=price";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $max>=price AND category='men'";
                         } else {
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%'";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND category='men'";
                         }
                     } else {
-                        $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%'";
+                        $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND category='men'";
                     }
                     $text_result = $_GET['search'];
                 } else {
@@ -90,18 +90,18 @@
                         if ((!empty($_GET['min'])) && (!empty($_GET['max']))) {
                             $min = $_GET['min'];
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE price BETWEEN $min AND $max";
+                            $sql = "SELECT * FROM everything WHERE price BETWEEN $min AND $max AND category='men'";
                         } else if (!empty($_GET['min'])) {
                             $min = $_GET['min'];
-                            $sql = "SELECT * FROM everything WHERE $min<=price";
+                            $sql = "SELECT * FROM everything WHERE $min<=price AND category='men'";
                         } else if (!empty($_GET['max'])) {
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE $max>=price";
+                            $sql = "SELECT * FROM everything WHERE $max>=price AND category='men'";
                         } else {
-                            $sql = "SELECT * FROM everything";
+                            $sql = "SELECT * FROM everything WHERE category='men'";
                         }
                     } else {
-                        $sql = "SELECT * FROM everything";
+                        $sql = "SELECT * FROM everything WHERE category='men'";
                     }
                     $text_result = 'ALL ITEMS';
                 }
@@ -144,12 +144,12 @@
             </div>
         </div>
     </div>
+    <br><br><br>
     <button class="top" title="move to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
         </svg>
     </button>
-    <br><br><br>
     <?php require '../footer.php'; ?>
     <script>
         let top_btn = document.querySelector('.top');

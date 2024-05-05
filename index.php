@@ -1,5 +1,7 @@
 <?php require 'database.php'; ?>
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -51,12 +53,19 @@
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
                         </svg>
                     </button>
-                    <a href="" class="nav-bar-user" title="user profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                        </svg>
-                    </a>
+                    <?php
+                    if (isset($_SESSION["useruid"])) {
+                        echo '<a href = "profile.php" class="nav-bar-user">' . $_SESSION["useruid"] . '</a>';
+                        echo '<a href = "includes/logout.inc.php" class="nav-bar-user">Logout </a>';
+                    } else {
+                        echo '<a href="login.php" class="nav-bar-user" title="user profile">Login
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                            </a>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -104,7 +113,7 @@
             </div>
             <div class="items">
                 <?php
-                $sql = "SELECT * FROM men LIMIT 12";
+                $sql = "SELECT * FROM everything ORDER BY RAND() LIMIT 12";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
@@ -115,13 +124,13 @@
                         $category = $row['category'];
                         echo "
                             <div class='item-box'>
-                                <a href='item-details.php?$tag'>
+                                <a href='item-details.php?id=$tag'>
                                     <div class='image' id='image$tag'>
                                     <img src='$img'>
                                     </div>
                                 </a>
                                 <div class='details'>
-                                    <a href='item-details.php?$tag'>
+                                    <a href='../item-details.php?id=$tag'>
                                         <span class='name'>$name</span><br>
                                     </a>
                                     <span class='category'>$category</span><br>
@@ -172,45 +181,7 @@
         </div>
     </div>
 
-    <div class="footer">
-        <div class="ul1">
-            <div class="li1">MAY WE HELP YOU?</div><br>
-            <div>Contact Us</div>
-            <div>My Order</div>
-            <div>FAQs</div>
-            <div>Email Unsubscribe</div>
-            <div>Sitemap</div>
-        </div>
-        <div class="ul2">
-            <div class="li1">THE COMPANY</div><br>
-            <div>About Fabrix</div>
-            <div>Code of Ethics</div>
-            <div>Careers</div>
-            <div>Legal</div>
-            <div>Corporate Information</div>
-        </div>
-        <div class="ul3">
-            <div class="li1">Fabrix SERVICES</div><br>
-            <div>Discover our services</div>
-            <div>Book an Appointment</div>
-            <div>Collect In-Store</div>
-        </div><br><br>
-        <div class="footer-logo">
-            <div>F</div>
-            <div>A</div>
-            <div>B</div>
-            <div>R</div>
-            <div>I</div>
-            <div>X</div>
-        </div>
-        <div>
-            <a href="#"><img src="images/icons/twiiter.png" alt="twitter" width="70px" height="40px"></a>
-            <a href="#" class="footer-icon1"><img src="images/icons/facebook.png" alt="facebook" width="70px" height="50px"></a>
-            <a href="#" class="footer-icon2"><img src="images/icons/youtube.png" alt="youtube" width="55px" height="45px"></a>
-            <a href="#" class="footer-icon3"><img src="images/icons/insragram.png" alt="instragram" width="70px" height="50px"></a>
-        </div>
-        <div class="footer-last">© 2023 Fabrix, Inc. All Rights Reserved</div>
-    </div>
+    <?php require 'footer.php'; ?>
 
     <div class="bg"></div>
     <div class="cart">

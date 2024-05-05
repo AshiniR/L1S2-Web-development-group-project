@@ -1,3 +1,4 @@
+<?php require 'database.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -146,61 +147,56 @@
             </svg>
         </div>
         <div class="cart-text"><br>
-            <span class="cart-text">CART</span>
-            <hr>
+            <?php
+            if (isset($_SESSION['useruid'])) {
+                $n =  $_SESSION['useruid'];
+                echo "<span class='cart-text'>CART - $n</span>
+                <hr>";
+            } else {
+                echo "<span class='cart-text'>PLEASE LOG IN !</span>
+                <hr>";
+            }
+            ?>
         </div>
 
         <div class="cart-items">
+            <?php
+            $tot = 0;
+            if (isset($_SESSION['useruid'])) {
+                $sql2 = "SELECT * FROM everything;";
+                $res = $conn->query($sql2);
+                if ($res->num_rows > 0) {
+                    while ($row = $res->fetch_assoc()) {
+                        $name = $row['name'];
+                        $img = $row['img'];
+                        $tag = $row['id'];
+                        $price = $row['price'] * $row['count'];
+                        $category = $row['category'];
+                        $count = $row['count'];
+                        $tot = $tot + $price;
 
-            <div class="cart-item-card">
-                <div class="cart-img"></div>
-                <div class="cart-item-details">
-                    <div class="item-name">Sample Name</div>
-                    <div class="item-price">100 USD</div>
-                    <div class="item-count">item count - 3</div>
-                    <div class="item-total">Total - 300 USD</div>
-                </div>
-            </div><br>
-            <div class="cart-item-card">
-                <div class="cart-img"></div>
-                <div class="cart-item-details">
-                    <div class="item-name">Sample Name</div>
-                    <div class="item-price">100 USD</div>
-                    <div class="item-count">item count - 3</div>
-                    <div class="item-total">Total - 300 USD</div>
-                </div>
-            </div><br>
-            <div class="cart-item-card">
-                <div class="cart-img"></div>
-                <div class="cart-item-details">
-                    <div class="item-name">Sample Name</div>
-                    <div class="item-price">100 USD</div>
-                    <div class="item-count">item count - 3</div>
-                    <div class="item-total">Total - 300 USD</div>
-                </div>
-            </div><br>
-            <div class="cart-item-card">
-                <div class="cart-img"></div>
-                <div class="cart-item-details">
-                    <div class="item-name">Sample Name</div>
-                    <div class="item-price">100 USD</div>
-                    <div class="item-count">item count - 3</div>
-                    <div class="item-total">Total - 300 USD</div>
-                </div>
-            </div><br>
-            <div class="cart-item-card">
-                <div class="cart-img"></div>
-                <div class="cart-item-details">
-                    <div class="item-name">Sample Name</div>
-                    <div class="item-price">100 USD</div>
-                    <div class="item-count">item count - 3</div>
-                    <div class="item-total">Total - 300 USD</div>
-                </div>
-            </div><br>
+                        echo "<div class='cart-item-card'>
+                        <div class='cart-img'></div>
+                        <div class='cart-item-details'>
+                            <div class='item-name'>$name</div>
+                            <div class='item-price'>$price USD</div>
+                            <div class='item-count'>item count - $count</div>
+                            <div class='item-total'>Total - $price USD</div>
+                        </div>
+                    </div><br>";
+                    }
+                }
+            }
+            ?>
+
         </div>
         <div class="cart-info">
-            <span class="cart-total">Total - 300 USD</span><br>
-            <button>PROCEED TO CHECKOUT</button>
+            <?php
+            if (isset($_SESSION['useruid'])) {
+                echo "<span class='cart-total'>Total - $tot USD</span><br>
+                <button>PROCEED TO CHECKOUT</button>";
+            }
+            ?>
         </div>
     </div>
     <script>

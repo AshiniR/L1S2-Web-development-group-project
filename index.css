@@ -371,56 +371,6 @@ body {
     animation: colorH ease forwards 0.3s;
 }
 
-.footer {
-    width: auto;
-    background-color: black;
-    color: white;
-    padding: 25px;
-}
-.footer div.ul1,
-div.ul2 {
-    display: inline-block;
-    width: 30%;
-    height: 75%;
-    margin-top: 5%;
-    margin-left: 45px;
-}
-.footer div.ul3 {
-    display: inline-block;
-    width: 30%;
-    height: 75%;
-    margin-top: 5%;
-}
-.ul2 {
-    display: inline-block;
-}
-.li1 {
-    font-size: 17px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.footer-logo {
-    font-size: 180px;
-    padding: 50px;
-    margin-left: 5%;
-}
-.footer-logo div {
-    display: inline-block;
-    padding: 30px;
-}
-.footer a {
-    display: inline-block;
-    margin: 10px;
-    min-height: 10px;
-    padding: 3px;
-}
-.footer-icon3 {
-    padding-left: 15px;
-}
-
-.footer-last {
-    margin-left: 80%;
-}
-
 .box {
     padding: 85px 0;
     width: 79.5%;
@@ -603,6 +553,7 @@ span {
 .items .item-box {
     width: 15.2%;
     margin-right: 1%;
+    padding-bottom: 30px;
     display: inline-block;
     height: 45vh;
 }
@@ -633,7 +584,6 @@ span {
 
 .items .item-box .details .name {
     font-size: 18px;
-    font-weight: bold;
 }
 
 .items .item-box .details .price {
@@ -670,6 +620,11 @@ span {
     height: 32px;
     width: 32px;
     padding: 8px;
+}
+
+.nav-bar-user {
+    text-decoration: none;
+    color: white;
 }
 
 @keyframes opa {
