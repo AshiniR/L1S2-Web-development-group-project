@@ -9,7 +9,7 @@
 <body>
     <div class="nav-bar">
         <a href="../index.php" class="nav-bar-logo"><img src="../images/logo/logo-b.png" alt="logo-white.png" width="180px"></a>
-        <a href="everything.php" class="nav-bar-links-everything">EVERYTHING</a>
+        <a href="../everything/everything.php" class="nav-bar-links-everything">EVERYTHING</a>
         <a href="../women/women.php" class="nav-bar-links">WOMEN</a>
         <a href="../men/men.php" class="nav-bar-links">MEN</a>
         <a href="../about.php" class="nav-bar-links-about">ABOUT</a>
