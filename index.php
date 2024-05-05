@@ -1,3 +1,5 @@
+<?php require 'database.php'; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -67,12 +69,71 @@
         </div>
     </div>
 
+    <button class="top" title="move to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+        </svg>
+    </button>
+
     <div class="main-content">
         <div class="main-content-2">
-            <div class="main-content-2-box1"></div>
-            <div class="main-content-2-box2"></div>
-            <div class="main-content-2-box3"></div>
+            <div class="main-content-2-box1">
+                <div class="box-text">
+                    <span>Discover the Latest Designs <br>for Women</span>
+                    <br><br><a href="everything/everything.php"><button class="b">SHOP NOW</button></a>
+                </div>
+            </div>
+            <div class="main-content-2-box2">
+                <div class="box-text">
+                    <span>Step into elegance with our <br>latest fashion designs</span>
+                    <br><br><a href="everything/everything.php"><button class="b">SHOP NOW</button></a>
+                </div>
+            </div>
+            <div class="main-content-2-box3">
+                <div class="box-text">
+                    <span>Discover the Latest Designs <br>for Men</span>
+                    <br><br><a href="everything/everything.php"><button class="b">SHOP NOW</button></a>
+                </div>
+            </div>
         </div>
+
+        <div class="featured-items">
+            <div class="f-info">
+                <span>Featured Items</span>
+                <hr class="hr">
+            </div>
+            <div class="items">
+                <?php
+                $sql = "SELECT * FROM men LIMIT 12";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $name = $row['name'];
+                        $img = $row['img'];
+                        $tag = $row['id'];
+                        $price = $row['price'];
+                        $category = $row['category'];
+                        echo "
+                            <div class='item-box'>
+                                <a href='item-details.php?$tag'>
+                                    <div class='image' id='image$tag'>
+                                    <img src='$img'>
+                                    </div>
+                                </a>
+                                <div class='details'>
+                                    <a href='item-details.php?$tag'>
+                                        <span class='name'>$name</span><br>
+                                    </a>
+                                    <span class='category'>$category</span><br>
+                                    <span class='price'>$price USD</span>
+                                </div>
+                            </div>";
+                    }
+                }
+                ?>
+            </div>
+        </div>
+
         <div class="main-content-4" id="main-content-4">
             <div class="new-user-offer">
                 <div class="text1">40% OFF For New Users!</div>
@@ -82,35 +143,34 @@
                 <br><button class="shop-offer">SHOP NOW</button>
             </div>
         </div>
-        <div class="main-content-5">
-            <div class="main-content-5-box1"></div>
-            <div class="main-content-5-box2"></div>
-            <div class="main-content-5-box3"></div>
-        </div>
+
         <div class="box">
             <div class="box1">
-                <img src="images/world.jpg" alt="world" width="50px" height="50px"><br>
-                <div class="image-tittle1">Worldwide Shipping</div>
-                <div class="tittle1-info"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                </svg><br>
+                <div class="image-tittle">Worldwide Shipping</div>
             </div>
             <div class="box2">
-                <img src="images/best-quality.png" alt="quality" width="50px" height="50px"><br>
-                <div class="image-tittle2">Best Quality</div>
-                <div class="tittle2-info"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </svg><br>
+                <div class="image-tittle">Best Quality</div>
             </div>
             <div class="box3">
-                <img src="images/best-offer.png" alt="offers" width="40px" height="50px"><br>
-                <div class="image-tittle3">Best Offers</div>
-                <div class="tittle3-info"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16">
+                    <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0M4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                </svg><br>
+                <div class="image-tittle">Best Offers</div>
             </div>
             <div class="box4">
-                <img src="images/paymant.jpg" alt="payment" width="40px" height="40px"><br>
-                <div class="image-tittle4">Secure Payments</div>
-                <div class="tittle4-info"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
+                </svg><br>
+                <div class="image-tittle">Secure Payments</div>
             </div>
         </div>
     </div>
-    <br><br>
 
     <div class="footer">
         <div class="ul1">
@@ -235,6 +295,23 @@
             body.classList.remove("cartShow");
             body.style.overflow = 'auto';
             header.style.animation = 'opa2 ease forwards 0.4s';
+        });
+
+        let top_btn = document.querySelector('.top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 140) {
+                top_btn.style.display = 'block';
+            } else {
+                top_btn.style.display = 'none';
+            }
+        });
+
+        top_btn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
     </script>
 </body>

@@ -117,7 +117,7 @@
                         <div class='item-box'>
                             <a href='item-details.php?$tag'>
                                 <div class='image' id='image$tag'>
-                                <img src='../$img'>
+                                <img src='$img'>
                                 </div>
                             </a>
                             <div class='details'>
@@ -129,7 +129,6 @@
                             </div>
                         </div>
                         <script>
-                            document.getElementById('image$tag').style.backgroundImage = \"url('../$img')\";
                             document.getElementById('upper-text').innerHTML = 'SHOW RESULTS: \'$text_result\'';
                         </script>
                             ";
