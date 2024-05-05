@@ -89,7 +89,6 @@ include_once 'item-details-nav.php';
         </form>
 
     </div>
-    <?php require 'footer.php' ?>
 </body>
 
 </html>

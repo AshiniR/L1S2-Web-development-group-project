@@ -39,7 +39,7 @@
             </button>
             <?php
             if (isset($_SESSION["useruid"])) {
-                echo '<a href="" class="nav-bar-user">' . $_SESSION["username"] . '</a>';
+                echo '<a href="" class="nav-bar-user">' . $_SESSION["useruid"] . '</a>';
                 echo '<a href="includes/logout.inc.php" class="nav-bar-user">Logout </a>';
             } else {
                 echo '<a href="login.php" class="nav-bar-user" title="user profile">Login

@@ -163,7 +163,7 @@
             <?php
             $tot = 0;
             if (isset($_SESSION['useruid'])) {
-                $sql2 = "SELECT * FROM everything;";
+                $sql2 = "SELECT * FROM everything W";
                 $res = $conn->query($sql2);
                 if ($res->num_rows > 0) {
                     while ($row = $res->fetch_assoc()) {
