@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `everything`
 --
 
+DROP DATABASE IF EXIST fabrix
+CREATE DATABASE fabrix
+USE fabrix
+
 CREATE TABLE `everything` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
