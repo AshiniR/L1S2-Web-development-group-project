@@ -428,6 +428,7 @@
     } else if (isset($_GET['add']) && !empty($_GET['add'])) {
         echo "<script>alert('Please Log In !!');</script>";
     }
+
     ?>
     <button class="top" title="move to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
@@ -510,6 +511,8 @@
                 behavior: "smooth"
             });
         });
+
+        
     </script>
 
     <!--code for the footer-->

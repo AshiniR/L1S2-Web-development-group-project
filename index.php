@@ -55,7 +55,7 @@ session_start();
                     </button>
                     <?php
                     if (isset($_SESSION["useruid"])) {
-                        echo '<a href = "profile.php" class="nav-bar-user">' . $_SESSION["useruid"] . '</a>';
+                        echo '<a href = "" class="nav-bar-user">' . $_SESSION["useruid"] . '</a>';
                         echo '<a href = "includes/logout.inc.php" class="nav-bar-user">Logout </a>';
                     } else {
                         echo '<a href="login.php" class="nav-bar-user" title="user profile">Login
