@@ -30,3 +30,7 @@ Workload -
 
 (To fetch selling items, first need to import the database called fabrix)
 (Note - Some cart functions are still developing)
+
+**Sample video is available**
+
+******
