@@ -18,9 +18,9 @@ Group Members -
 
 Workload -
 
-225520F - Home page without footer, search/filter functions , Move to top button, everything page
+225520F - Home page without footer, search/filter functions , Move to top button, everything page, link pages
 
-225507X - Login system, footer, men page
+225507X - Login system, footer, men page, link pages
 
 225517D - Item details page, link pages, women page
 
