@@ -654,6 +654,28 @@ span {
     color: white;
 }
 
+.delete {
+    position: absolute;
+    right: 30px;
+    bottom: 50px;
+}
+
+.delete svg {
+    color: black;
+    height: 22px;
+    width: 22px;
+}
+
+.delete svg:hover {
+    animation: colorH4 0.3s ease forwards;
+}
+
+@keyframes colorH4 {
+    to {
+        color: red;
+    }
+}
+
 @keyframes opa {
     from {
         opacity: 1;
