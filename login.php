@@ -1,6 +1,3 @@
-<?php
-include_once 'item-details-nav.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,16 +6,37 @@ include_once 'item-details-nav.php';
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        div {
+            display: inline-block;
+        }
+
+        .login-image {
+            width: 60%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .login-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .loginform {
-            max-width: 400px;
-            margin: 50px auto;
+            margin-top: 35px;
+            position: absolute;
+            top: 0;
+            width: 39%;
             padding: 20px;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .loginform form {
+            width: 75%;
+            margin: 0 auto;
         }
 
         .loginform-label {
@@ -29,7 +47,7 @@ include_once 'item-details-nav.php';
         .loginform-input {
             width: 100%;
             padding: 10px;
-            margin-top: 5px;
+            margin-top: 2.5px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -48,7 +66,7 @@ include_once 'item-details-nav.php';
         }
 
         .loginform-button:hover {
-            background-color: #0056b3;
+            animation: anim 0.4s ease forwards;
         }
 
         .loginform-button a {
@@ -56,36 +74,96 @@ include_once 'item-details-nav.php';
             color: #fff;
         }
 
+        .logtext {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        hr {
+            font-weight: bold;
+        }
+
+        label,
+        p,
+        a {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
         .loginform-message {
-            margin-top: 10px;
-            font-size: 14px;
-            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            font-size: 20px;
         }
 
-        .loginform-message button {
-            background: none;
-            border: none;
-            padding: 0;
-            font-size: 14px;
+        .homebtn {
+            all: unset;
+            background-color: black;
+            color: white;
             cursor: pointer;
-            color: #007bff;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+            font-size: 17px;
+            padding: 10px 20px;
+            border: 1px solid white;
         }
 
-        .loginform-message button:hover {
-            text-decoration: underline;
+        .homebtn:hover {
+            animation: back 0.4s ease forwards;
+        }
+
+        @keyframes anim {
+            to {
+                background-color: #0056b3;
+            }
+        }
+
+        @keyframes back {
+            to {
+                background-color: grey;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .error {
+            color: red;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
+    <div class="login-image">
+        <img src="images/background/login.jpg" alt="">
+    </div>
     <div class="loginform">
         <form action="includes/login.inc.php" method="post">
+            <div class="logtext">Log in</div>
+            <br>
+            <hr><br><br>
             <label for="email" class="loginform-label">Email</label><br>
-            <input type="text" name="email" id="email" class="loginform-input" placeholder="Enter your Email"><br><br>
+            <input type="text" name="email" id="email" class="loginform-input" placeholder="Enter your Email" required><br><br>
             <label for="password" class="loginform-label">Password</label><br>
-            <input type="password" name="password" id="password" class="loginform-input" placeholder="Enter your Password"><br><br>
-            <button type="submit" name="submit" class="loginform-button">Login</button>
-            <p class="loginform-message">New member?<button><a href="sign.php">Register</a></button></p>
+            <input type="password" name="password" id="password" class="loginform-input" placeholder="Enter your Password" required><br><br>
+            <input type="submit" name="submit" class="loginform-button" value="Login"><br><br>
+            <?php
+            if (isset($_GET['error']) && !empty($_GET['error'])) {
+                echo '<p class="error">Invalid Login</p>';
+            }
+            ?>
+            <hr><br>
+            <div class="loginform-message">New member?</div><br>
+            <a href="sign.php"><button type="button" class="loginform-button">Register</button></a><br>
+            <br><br><br>
+            <a href="index.php"><button type="button" class="homebtn">BACK TO HOME</button></a>
         </form>
 
     </div>

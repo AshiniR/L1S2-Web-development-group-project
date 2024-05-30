@@ -65,7 +65,7 @@ function createuseraccount($conn, $username, $useremail, $userid, $userpassword)
     mysqli_stmt_bind_param($stmt, "ssss", $username, $useremail, $userid, $hashpassword);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("Location:../login.php?error=none");
+    header("Location:../login.php");
     exit();
 }
 function emptyinputslogin($useremail, $userpassword)
@@ -81,13 +81,13 @@ function LoginUser($conn, $useremail, $userpassword)
 {
     $UidExist = UidExist($conn, $useremail, $useremail);
     if ($UidExist === false) {
-        header("location:../sign.php?error=wronglogin");
+        header("location:../login.php?error=wronglogin");
         exit();
     }
     $hashpassword = $UidExist["Userpassword"];
     $checkpassword = password_verify($userpassword, $hashpassword);
     if ($checkpassword === false) {
-        header("location:../sign.php?error=wronglogin");
+        header("location:../login.php?error=wronglogin");
         exit();
     } else if ($checkpassword === true) {
         session_start();
