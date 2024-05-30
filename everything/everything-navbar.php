@@ -57,7 +57,7 @@ session_start();
         </div>
     </div>
 
-    <?php require '../cart.php'; ?>
+    <?php require 'cart.php'; ?>
 </body>
 
 </html>

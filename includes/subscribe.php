@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "includes/database.inc.php";
+require "database.inc.php";
 
 $referrer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
 ?>
