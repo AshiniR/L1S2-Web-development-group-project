@@ -1,4 +1,4 @@
-<?php require 'database.php'; ?>
+<?php require "includes/database.inc.php" ?>
 <?php session_start() ?>
 <!DOCTYPE html>
 <html>
@@ -143,6 +143,11 @@
 
         }
 
+        .count {
+            height: 33px;
+            width: 100px;
+        }
+
         .cartbtn {
             min-height: 33px;
             width: 300px;
@@ -205,6 +210,10 @@
         .cartbtn a {
             text-decoration: none;
             color: white;
+        }
+
+        .disable {
+            display: none;
         }
 
         @media screen and (max-width:435px) {
@@ -386,7 +395,7 @@
                 </div>
                 <div class='img-content'>
                     <div class='cat-path'>
-                        <a href='women/women.php'>$category</a>
+                        <a href='$category/$category.php'>$category</a>
                     </div>
                     <h1 class='anchor'>$name</h1>
                     <p class='p-price'><span class='price'>$price USD</span>
@@ -394,8 +403,11 @@
                     </p>
                         <br><br>
                         <hr class='hori-line'>
-                        <a href='item-details.php?id=$id&add=$id'>
-                        <button class='cartbtn' id='cb'>ADD TO CART</button></a>
+                        <form action='includes/addcart.php'>
+                            <input type='number' name='count' min='1' value='1' class='count' required>
+                            <input type='text' class='disable' name='idd' value='$id'>
+                            <button class='cartbtn' id='cb'>ADD TO CART</button>
+                        </form>
                         <hr class='hori-buttom'>
                 </div>
             </div>";
@@ -404,32 +416,6 @@
     }
     ?>
 
-    <?php
-    if (isset($_GET['add']) && !empty($_GET['add']) && isset($_SESSION['useruid'])) {
-        $userID = $_SESSION['userid'];
-        $id = $_GET['id'];
-        $sql = "SELECT * FROM usercart WHERE Userid=$userID AND item=$id;";
-        $res1 = $conn->query($sql);
-        if ($res1) {
-            $x = $res1->num_rows;
-            if ($x > 0) {
-                $count = $x + 1;
-                $sql_ = "UPDATE usercart SET count = $count WHERE Userid=$userID AND item=$id;";
-            } else {
-                $sql_ = "INSERT INTO usercart (Userid, item,count) VALUES ($userID, $id, 1);";
-            }
-            $res2 = $conn->query($sql_);
-            if ($res2) {
-                echo "<script>alert('Added to the cart!!');</script>";
-            } else {
-                echo "<script>alert('Something went wrong!!');</script>";
-            }
-        }
-    } else if (isset($_GET['add']) && !empty($_GET['add'])) {
-        echo "<script>alert('Please Log In !!');</script>";
-    }
-
-    ?>
     <button class="top" title="move to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
@@ -511,8 +497,6 @@
                 behavior: "smooth"
             });
         });
-
-        
     </script>
 
     <!--code for the footer-->

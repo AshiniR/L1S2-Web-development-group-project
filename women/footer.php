@@ -138,24 +138,24 @@
         <div class="flinks">
             <div class="ul1">
                 <div class="li1">FOR HIM</div><br>
-                <div><a href="men/men.php?search=T Shirt">T Shirts</a></div>
-                <div><a href="men/men.php?search=Shirt">Shirts</a></div>
-                <div><a href="men/men.php?search=jean">Jeans</a></div>
-                <div><a href="men/men.php?search=trouser">Trousers</a></div>
-                <div><a href="men/men.php">Everything</a></div>
+                <div><a href="../men/men.php?search=T Shirt">T Shirts</a></div>
+                <div><a href="../men/men.php?search=Shirt">Shirts</a></div>
+                <div><a href="../men/men.php?search=jean">Jeans</a></div>
+                <div><a href="../men/men.php?search=trouser">Trousers</a></div>
+                <div><a href="../men/men.php">Everything</a></div>
             </div>
             <div class="ul2">
                 <div class="li1">For Her</div><br>
-                <div><a href="women/women.php?search=T shirt">T Shirts</a></div>
-                <div><a href="women/women.php?search=top">Tops</a></div>
-                <div><a href="women/women.php?search=jean">Jeans</a></div>
-                <div><a href="women/women.php?search=skirt">Skirts</a></div>
-                <div><a href="women/women.php">Everything</a></div>
+                <div><a href="women.php?search=T shirt">T Shirts</a></div>
+                <div><a href="women.php?search=top">Tops</a></div>
+                <div><a href="women.php?search=jean">Jeans</a></div>
+                <div><a href="women.php?search=skirt">Skirts</a></div>
+                <div><a href="women.php">Everything</a></div>
             </div>
             <div class="ul3">
                 <div class="ficons">
                     <div class="form">
-                        <form action="includes/subscribe.php">
+                        <form action="../includes/subscribe.php">
                             <input type='email' class='textbox' id='email' name='email' placeholder='Email' required><br><br>
                             <button class="b" id="sub">Subscribe</button>
                         </form>

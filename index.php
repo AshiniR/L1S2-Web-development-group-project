@@ -1,4 +1,4 @@
-<?php require 'database.php'; ?>
+<?php require "includes/database.inc.php" ?>
 <?php
 session_start();
 ?>
@@ -73,7 +73,7 @@ session_start();
             <div class="head-main-text">Dive Into A Shower<br>Of Offers!</div>
             <br>
             <div class="head-second-text">40% Off For New Users!</div>
-            <br><button class="head-shop">SHOP NOW</button>
+            <br><button class="head-shop" id="head-shop">SHOP NOW</button>
             <a href="#main-content-4"><button class="head-find">FIND MORE</button></a>
         </div>
     </div>
@@ -149,7 +149,7 @@ session_start();
                 <div class="text2">Apply Coupon Code</div>
                 <div class="text3">FAB40NEW</div>
                 <div class="text4">(only applicable for the first purchase)</div>
-                <br><button class="shop-offer">SHOP NOW</button>
+                <br><button class="shop-offer" id="shop-offer">SHOP NOW</button>
             </div>
         </div>
 
@@ -192,34 +192,42 @@ session_start();
             </svg>
         </div>
         <div class="cart-text"><br>
-            <span class="cart-text">CART</span>
-            <hr>
+            <?php
+            if (isset($_SESSION['useruid'])) {
+                $n =  $_SESSION['useruid'];
+                echo "<span class='cart-text'>CART - $n</span>
+                <hr>";
+            } else {
+                echo "<span class='cart-text'>PLEASE LOG IN !</span>
+                <hr>";
+            }
+            ?>
         </div>
 
         <div class="cart-items">
+            <?php
+            $tot = 0;
+            if (isset($_SESSION['useruid'])) {
+                $userID = $_SESSION['userid'];
+                $sql2 = "SELECT * FROM usercart WHERE Userid = $userID";
+                $res = $conn->query($sql2);
+                if ($res->num_rows > 0) {
+                    while ($row = $res->fetch_assoc()) {
+                        $tag = $row['item'];
+                        $count = $row['count'];
+                        $s = "SELECT * FROM everything WHERE id=$tag";
+                        $r = $conn->query($s);
+                        $rw = $r->fetch_assoc();
+                        $price = $rw['price'] * $row['count'];
+                        $img = $rw['img'];
+                        $name = $rw['name'];
+                        $category = $rw['category'];
+                        $tot = $tot + $price;
 
-            <div class="cart-items">
-                <?php
-                $tot = 0;
-                if (isset($_SESSION['useruid'])) {
-                    $userID = $_SESSION['userid'];
-                    $sql2 = "SELECT * FROM usercart WHERE Userid = $userID";
-                    $res = $conn->query($sql2);
-                    if ($res->num_rows > 0) {
-                        while ($row = $res->fetch_assoc()) {
-                            $tag = $row['item'];
-                            $count = $row['count'];
-                            $s = "SELECT * FROM everything WHERE id=$tag";
-                            $r = $conn->query($s);
-                            $rw = $r->fetch_assoc();
-                            $price = $rw['price'] * $row['count'];
-                            $img = $rw['img'];
-                            $name = $rw['name'];
-                            $category = $rw['category'];
-                            $tot = $tot + $price;
-
-                            echo "<div class='cart-item-card'>
-                        <div class='cart-img' id='img$tag'></div>
+                        echo "<div class='cart-item-card'>
+                        <div class='cart-img' id='img$tag'>
+                        <img src='$img'>
+                        </div>
                         <div class='cart-item-details'>
                             <div class='item-name'>$name</div>
                             <div class='item-price'>$price USD</div>
@@ -227,64 +235,68 @@ session_start();
                             <div class='item-total'>Total - $price USD</div>
                         </div>
                     </div><br>
-                    
-                    <script>
-                    let x= document.getElementById('img$tag');
-                    x.style.backgroundImage = 'url(\"$img\")';
-                    </script>
-
                     ";
-                        }
                     }
                 }
-                ?>
+            }
+            ?>
 
-            </div>
-            <div class="cart-info">
-                <?php
-                if (isset($_SESSION['useruid'])) {
-                    echo "<span class='cart-total'>Total - $tot USD</span><br>
-                <button>PROCEED TO CHECKOUT</button>";
-                }
-                ?>
-            </div>
         </div>
+        <div class="cart-info">
+            <?php
+            if (isset($_SESSION['useruid'])) {
+                echo "<span class='cart-total'>Total - $tot USD</span><br>
+                <button>PROCEED TO CHECKOUT</button>";
+            }
+            ?>
+        </div>
+    </div>
 
-        <script>
-            let cart = document.querySelector(".cart");
-            let cartBtn = document.querySelector(".nav-bar-cart");
-            let closeBtn = document.querySelector(".close-btn");
-            let body = document.querySelector("body");
-            let header = document.querySelector('.header');
+    <script>
+        let cart = document.querySelector(".cart");
+        let cartBtn = document.querySelector(".nav-bar-cart");
+        let closeBtn = document.querySelector(".close-btn");
+        let body = document.querySelector("body");
+        let header = document.querySelector('.header');
 
-            cartBtn.addEventListener("click", () => {
-                body.classList.toggle("cartShow");
-                body.style.overflow = 'hidden';
-                header.style.animation = 'opa ease forwards 0.4s';
+        cartBtn.addEventListener("click", () => {
+            body.classList.toggle("cartShow");
+            body.style.overflow = 'hidden';
+            header.style.animation = 'opa ease forwards 0.4s';
+        });
+        closeBtn.addEventListener("click", () => {
+            body.classList.remove("cartShow");
+            body.style.overflow = 'auto';
+            header.style.animation = 'opa2 ease forwards 0.4s';
+        });
+
+        let top_btn = document.querySelector('.top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 140) {
+                top_btn.style.display = 'block';
+            } else {
+                top_btn.style.display = 'none';
+            }
+        });
+
+        top_btn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
             });
-            closeBtn.addEventListener("click", () => {
-                body.classList.remove("cartShow");
-                body.style.overflow = 'auto';
-                header.style.animation = 'opa2 ease forwards 0.4s';
-            });
+        });
 
-            let top_btn = document.querySelector('.top');
+        let shop_offer = document.getElementById('shop-offer');
+        shop_offer.addEventListener('click', () => {
+            window.location.href = "everything/everything.php";
+        })
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 140) {
-                    top_btn.style.display = 'block';
-                } else {
-                    top_btn.style.display = 'none';
-                }
-            });
-
-            top_btn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            });
-        </script>
+        let head_shop = document.getElementById('head-shop');
+        head_shop.addEventListener('click', () => {
+            window.location.href = "everything/everything.php";
+        })
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?php require 'database.php'; ?>
+<?php require "includes/database.inc.php" ?>
 <?php
 session_start();
 ?>
@@ -34,10 +34,7 @@ session_start();
             </form>
         </section>
     </main>
-
-    <?php require 'cart.php' ?>
-
-    <script src="script.js"></script>
+    <?php require 'footer.php'; ?>
 </body>
 
 </html>

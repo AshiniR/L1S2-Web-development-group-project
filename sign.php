@@ -9,11 +9,9 @@ include_once 'item-details-nav.php';
     <style>
         * {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
-        .form-container {
+        .sign-container {
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
@@ -22,12 +20,12 @@ include_once 'item-details-nav.php';
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .form-label {
+        .sign-label {
             font-weight: bold;
             color: #333;
         }
 
-        .form-input {
+        .sign-input {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -37,7 +35,7 @@ include_once 'item-details-nav.php';
             box-sizing: border-box;
         }
 
-        .form-button {
+        .sign-button {
             width: 100%;
             padding: 10px;
             background-color: #007bff;
@@ -48,22 +46,22 @@ include_once 'item-details-nav.php';
             font-size: 16px;
         }
 
-        .form-button:hover {
+        .sign-button:hover {
             background-color: #0056b3;
         }
 
-        .form-message {
+        .sign-message {
             margin-top: 10px;
             font-size: 14px;
             text-align: center;
         }
 
-        .form-message a {
+        .sign-message a {
             text-decoration: none;
             color: #007bff;
         }
 
-        .form-message a:hover {
+        .sign-message a:hover {
             text-decoration: underline;
         }
 
@@ -90,19 +88,19 @@ include_once 'item-details-nav.php';
 </head>
 
 <body>
-    <div class="form-container">
+    <div class="sign-container">
         <form action="includes/sign.inc.php" method="post">
-            <label for="name" class="form-label">Name</label><br>
-            <input type="text" name="name" id="name" class="form-input" placeholder="Enter your Name"><br><br>
-            <label for="email" class="form-label">Email</label><br>
-            <input type="text" name="email" id="email" class="form-input" placeholder="Enter your Email"><br><br>
-            <label for="uname" class="form-label">User name</label><br>
-            <input type="text" name="uname" id="uname" class="form-input" placeholder="Enter your User name"><br><br>
-            <label for="password" class="form-label">Password</label><br>
-            <input type="password" name="password" id="password" class="form-input" placeholder="Enter your Password"><br><br>
-            <label for="password" class="form-label">Again Password</label><br>
-            <input type="password" name="againpassword" id="againpassword" class="form-input" placeholder="Enter your Password again"><br><br>
-            <button type="submit" name="submit" class="form-button">Register</button>
+            <label for="name" class="sign-label">Name</label><br>
+            <input type="text" name="name" id="name" class="sign-input" placeholder="Enter your Name"><br><br>
+            <label for="email" class="sign-label">Email</label><br>
+            <input type="text" name="email" id="email" class="sign-input" placeholder="Enter your Email"><br><br>
+            <label for="uname" class="sign-label">User name</label><br>
+            <input type="text" name="uname" id="uname" class="sign-input" placeholder="Enter your User name"><br><br>
+            <label for="password" class="sign-label">Password</label><br>
+            <input type="password" name="password" id="password" class="sign-input" placeholder="Enter your Password"><br><br>
+            <label for="password" class="sign-label">Again Password</label><br>
+            <input type="password" name="againpassword" id="againpassword" class="sign-input" placeholder="Enter your Password again"><br><br>
+            <button type="submit" name="submit" class="sign-button">Register</button>
         </form>
         <?php
         if (isset($_GET["error"]) && !empty($_GET['error'])) {

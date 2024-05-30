@@ -1,4 +1,4 @@
-<?php require "../database.php" ?>
+<?php require "../includes/database.inc.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -150,7 +150,7 @@
         </svg>
     </button>
     <br><br><br>
-    <?php require '../footer.php'; ?>
+    <?php require 'footer.php'; ?>
     <script>
         let top_btn = document.querySelector('.top');
 

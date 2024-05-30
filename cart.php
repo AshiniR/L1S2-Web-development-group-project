@@ -1,4 +1,4 @@
-<?php require 'database.php' ?>
+<?php require "includes/database.inc.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +36,7 @@
         }
 
         .cart .cart-items {
-            height: 65%;
+            height: 60%;
             overflow-y: auto;
             margin-top: 10px;
         }
@@ -53,14 +53,44 @@
         }
 
         .cart .cart-info {
-            height: 35%;
-            background-color: rgb(200, 237, 237);
+            margin-top: 25px;
+            background-color: white;
+            height: 40%;
+            padding: 10px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .cart .cart-info button {
+            all: unset;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+            font-size: 17px;
+            padding: 10px 20px;
+            border: 1px solid white;
+        }
+
+        .cart .cart-info button:hover {
+            animation: colorH2 0.3s ease forwards;
+        }
+
+        @keyframes colorH2 {
+            to {
+                color: black;
+                background-color: lightgray;
+            }
         }
 
         .cart .cart-items .cart-item-card {
-            width: 100%;
-            height: 20%;
+            width: 95%;
+            height: 26%;
             position: relative;
+            padding: 4px;
+            border: 0.5px solid black;
         }
 
         .cart .cart-items .cart-item-card .cart-img {
@@ -98,7 +128,6 @@
         }
 
         .item-tot-info {
-            background-color: blueviolet;
             display: flex;
             position: absolute;
             bottom: 0;
@@ -110,6 +139,16 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+        }
+
+        .cart .cart-items .cart-item-card .cart-img {
+            overflow: hidden;
+        }
+
+        .cart .cart-items .cart-item-card .cart-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         body.cartShow .cart {
@@ -130,6 +169,28 @@
                 sans-serif;
             color: black;
             font-size: 23px;
+        }
+
+        .delete {
+            position: absolute;
+            right: 30px;
+            bottom: 50px;
+        }
+
+        .delete svg {
+            color: black;
+            height: 22px;
+            width: 22px;
+        }
+
+        .delete svg:hover {
+            animation: colorH4 0.3s ease forwards;
+        }
+
+        @keyframes colorH4 {
+            to {
+                color: red;
+            }
         }
     </style>
 
@@ -177,19 +238,21 @@
                         $tot = $tot + $price;
 
                         echo "<div class='cart-item-card'>
-                        <div class='cart-img' id='img$tag'></div>
+                        <div class='cart-img' id='img$tag'>
+                        <img src='$img'>
+                        </div>
                         <div class='cart-item-details'>
                             <div class='item-name'>$name</div>
                             <div class='item-price'>$price USD</div>
                             <div class='item-count'>item count - $count</div>
                             <div class='item-total'>Total - $price USD</div>
                         </div>
+                        <a href='includes/deletecartitem.php?id=$tag' class='delete'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash3' viewBox='0 0 16 16'>
+                        <path d='M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5'/>
+                      </svg>
+                        </a>
                     </div><br>
-                    
-                    <script>
-                    let x= document.getElementById('img$tag');
-                    x.style.backgroundImage = 'url(\"$img\")';
-                    </script>
 
                     ";
                     }
@@ -209,6 +272,8 @@
     </div>
     <script>
         let cart = document.querySelector(".cart");
+        let cart_items = document.querySelector(".cart-items");
+        let info = document.querySelector(".cart-info");
         let cartBtn = document.querySelector(".nav-bar-cart");
         let closeBtn = document.querySelector(".close-btn");
         let body = document.querySelector("body");
@@ -223,12 +288,14 @@
         window.addEventListener('scroll', () => {
             let scrollTop = window.scrollY;
 
-            if (scrollTop > 104) {
+            if (scrollTop > 10) {
                 cart.style.top = "0";
-
-
+                cart_items.style.height = "70%";
+                info.style.height = "30%";
             } else {
                 cart.style.top = "104px";
+                cart_items.style.height = "60%";
+                info.style.height = "40%";
             }
         });
     </script>

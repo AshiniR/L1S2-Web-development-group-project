@@ -1,7 +1,8 @@
-<?php require 'database.php'; ?>
+<?php require "includes/database.inc.php" ?>
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,9 +59,8 @@ session_start();
             <p>Our team is made up of passionate individuals dedicated to bringing you the best in fashion and fabric. We're designers, seamstresses, and fashion enthusiasts!</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Fabric Clothing. All rights reserved.</p>
-    </footer>
+    
+    <?php require 'footer.php'; ?>
 </body>
 
 </html>
