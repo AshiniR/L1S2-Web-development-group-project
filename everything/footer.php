@@ -6,17 +6,17 @@
     <style>
         @keyframes footertext {
             from {
-                color: black;
+                color: var(--color1);
             }
 
             to {
-                color: rgb(70, 84, 255);
+                color: var(--color3);
             }
         }
 
         .footer {
-            background-color: rgb(221, 219, 219);
-            color: black;
+            background-color: var(--color4);
+            color: var(--color1);
             padding: 25px;
         }
 
@@ -34,7 +34,7 @@
         }
 
         .footer svg {
-            color: black;
+            color: var(--color1);
             height: 30px;
             width: 30px;
         }
@@ -106,7 +106,7 @@
         }
 
         .flinks a {
-            color: black;
+            color: var(--color1);
             text-decoration: none;
             font-size: 18px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -126,9 +126,9 @@
 
         @keyframes cc {
             to {
-                color: white;
-                background-color: black;
-                border: 1px solid black;
+                color: var(--bg2);
+                background-color: var(--color1);
+                border: 1px solid var(--color1);
             }
         }
     </style>

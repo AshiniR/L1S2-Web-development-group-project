@@ -13,7 +13,7 @@ session_start();
 
 <body>
     <div class="nav-bar">
-        <a href="../index.php" class="nav-bar-logo"><img src="../images/logo/logo-b.png" alt="logo-white.png" width="180px"></a>
+        <a href="../index.php" class="nav-bar-logo"><img src="../images/logo/logo-b.png" class="iconlogo" alt="logo-white.png" width="180px"></a>
         <a href="../everything/everything.php" class="nav-bar-links-everything">EVERYTHING</a>
         <a href="../women/women.php" class="nav-bar-links">WOMEN</a>
         <a href="men.php" class="nav-bar-links" id="men">MEN</a>
@@ -29,11 +29,6 @@ session_start();
             <button class="nav-bar-day">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun-fill" viewBox="0 0 16 16">
                     <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
-                </svg>
-            </button>
-            <button class="nav-bar-wishlist">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
                 </svg>
             </button>
             <button class="nav-bar-cart" title="cart">
@@ -58,6 +53,37 @@ session_start();
     </div>
 
     <?php require '../everything/cart.php'; ?>
+    <script>
+        document.querySelector('.nav-bar-night').addEventListener('click', () => {
+            document.querySelector('.nav-bar-night').style.display = 'none';
+            document.querySelector('.nav-bar-day').style.display = 'inline-block';
+            localStorage.setItem('theme', 'dark');
+            document.body.setAttribute('theme', 'dark');
+            document.querySelector('.iconlogo').src = "../images/logo/logo-w.png";
+        });
+        document.querySelector('.nav-bar-day').addEventListener('click', () => {
+            document.querySelector('.nav-bar-night').style.display = 'inline-block';
+            document.querySelector('.nav-bar-day').style.display = 'none';
+            localStorage.setItem('theme', 'light');
+            document.body.setAttribute('theme', 'light');
+            document.querySelector('.iconlogo').src = "../images/logo/logo-b.png";
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.querySelector('.nav-bar-night').style.display = 'none';
+                document.querySelector('.nav-bar-day').style.display = 'inline-block';
+                document.body.setAttribute('theme', 'dark');
+                document.querySelector('.iconlogo').src = "../images/logo/logo-w.png";
+            } else {
+                document.querySelector('.nav-bar-night').style.display = 'inline-block';
+                document.querySelector('.nav-bar-day').style.display = 'none';
+                document.body.setAttribute('theme', 'light');
+                document.querySelector('.iconlogo').src = "../images/logo/logo-b.png";
+            }
+        });
+    </script>
 </body>
 
 </html>

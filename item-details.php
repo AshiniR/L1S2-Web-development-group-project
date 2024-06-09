@@ -15,7 +15,7 @@
         }
 
         .img-content {
-            background-color: #f5f7f9;
+            background-color: var(--bg1);
             display: block;
             /*margin-bottom: 20%;*/
             padding-bottom: 25%;
@@ -34,7 +34,7 @@
 
         .cat-path a {
             text-decoration: none;
-            color: black;
+            color: var(--color1);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 480;
 
@@ -87,7 +87,6 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 500;
             font-size: 30px;
-            color: #333333;
         }
 
         .shipping {
@@ -99,7 +98,7 @@
             width: 48px;
             font-size: 12px;
             padding: 4px;
-            background-color: white;
+            background-color: var(--bg2);
             border-radius: 9%;
             border-color: #e2e2e2;
             border-width: 0.1cap;
@@ -113,7 +112,7 @@
             margin-top: 0.7%;
             margin-bottom: 1%;
             font-size: 12px;
-            color: #7A7A7A;
+            color: var(--color2);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 600;
         }
@@ -129,7 +128,7 @@
             text-align: center;
             min-height: 30px;
             border-color: #e2e2e2;
-            background-color: white;
+            background-color: var(--bg2);
             border-width: 0.1cap;
             box-shadow: none;
             border-radius: 0%;
@@ -178,7 +177,7 @@
 
         .cate a {
             text-decoration: none;
-            color: #333333;
+            color: var(--color1);
         }
 
         .cate a:hover {
@@ -191,13 +190,13 @@
             z-index: 1000;
             bottom: 25px;
             right: 25px;
-            background-color: white;
+            background-color: var(--bg2);
             border-radius: 50%;
             height: 50px;
             width: 50px;
             cursor: pointer;
             display: none;
-            border: 2px solid black;
+            border: 2px solid var(--color1);
         }
 
         .top svg {
@@ -205,15 +204,22 @@
             height: 32px;
             width: 32px;
             padding: 8px;
+            color: var(--color1);
         }
 
         .cartbtn a {
             text-decoration: none;
-            color: white;
+            color: var(--bg2);
         }
 
         .disable {
             display: none;
+        }
+
+        .anchor,
+        .price,
+        .shipping {
+            color: var(--color1);
         }
 
         @media screen and (max-width:435px) {

@@ -1,4 +1,24 @@
+:root {
+    --bg1: rgb(239, 237, 237);
+    --bg2: white;
+    --color1: black;
+    --color2: rgb(44, 44, 44);
+    --color3: rgb(70, 84, 255);
+    --color4: rgb(221, 219, 219);
+}
+
+[theme="dark"] {
+    --bg1: rgb(24, 25, 26);
+    --bg2: black;
+    --color1: white;
+    --color2: rgb(239, 237, 237);
+    --color3: rgb(200, 190, 237);
+    --color4: black;
+}
+
 body {
+    background-color: var(--bg1);
+    transition: 0.5s;
     margin: 0;
 }
 
@@ -396,6 +416,7 @@ body {
 .box svg {
     height: 55px;
     width: 55px;
+    color: var(--color1);
 }
 
 .cart {
@@ -666,6 +687,9 @@ span {
     width: 22px;
 }
 
+.image-tittle {
+    color: var(--color1);
+}
 .delete svg:hover {
     animation: colorH4 0.3s ease forwards;
 }

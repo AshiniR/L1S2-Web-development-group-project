@@ -1,16 +1,37 @@
+:root {
+    --bg1: rgb(239, 237, 237);
+    --bg2: white;
+    --color1: black;
+    --color2: rgb(44, 44, 44);
+    --color3: rgb(70, 84, 255);
+    --color4: rgb(221, 219, 219);
+}
+
+[theme="dark"] {
+    --bg1: rgb(24, 25, 26);
+    --bg2: black;
+    --color1: white;
+    --color2: rgb(239, 237, 237);
+    --color3: rgb(200, 190, 237);
+    --color4: black;
+}
+
 body {
     margin: 0;
-    background-color: rgb(239, 237, 237);
+    background-color: var(--bg1);
+    transition: 0.5s;
 }
 
 .main-content {
     width: 100%;
     display: flex;
     flex-direction: row;
+    transition: 0.5s;
 }
 
 .main-content div {
     height: auto;
+    transition: 0.5s;
 }
 .top {
     all: unset;
@@ -18,13 +39,13 @@ body {
     z-index: 1000;
     bottom: 25px;
     right: 25px;
-    background-color: white;
+    background-color: var(--bg2);
     border-radius: 50%;
     height: 50px;
     width: 50px;
     cursor: pointer;
     display: none;
-    border: 2px solid black;
+    border: 2px solid var(--color1);
 }
 
 .top svg {
@@ -32,18 +53,21 @@ body {
     height: 32px;
     width: 32px;
     padding: 8px;
+    color: var(--color1);
 }
 .part1 {
     margin-top: 50px;
     margin-left: 8%;
     width: 24%;
-    background-color: rgb(239, 237, 237);
+    background-color: var(--bg1);
+    transition: 0.5s;
 }
 
 .part2 {
     margin-top: 50px;
     width: 59.5%;
-    background-color: white;
+    background-color: var(--bg2);
+    transition: 0.5s;
 }
 
 .part2 .text {
@@ -58,7 +82,7 @@ span {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
-    color: black;
+    color: var(--color1);
     font-size: 23px;
 }
 
@@ -96,6 +120,7 @@ span {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
+    color: var(--color1);
 }
 
 .items .item-box .details {
@@ -113,7 +138,7 @@ span {
 
 .items .item-box .details .category {
     font-size: 12px;
-    color: rgb(44, 44, 44);
+    color: var(--color2);
 }
 
 .part1 .page_filter {
@@ -126,7 +151,7 @@ span {
 }
 
 .page_filter .search-form {
-    background-color: white;
+    background-color: var(--bg2);
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -137,14 +162,14 @@ span {
 .page_filter .search-form input {
     all: unset;
     font-family: system-ui;
-    color: black;
+    color: var(--color1);
     height: 100%;
     width: 100%;
     padding: 6px 10px;
 }
 
 .page_filter .search-form input::placeholder {
-    color: black;
+    color: var(--color1);
     opacity: 0.7;
 }
 
@@ -156,7 +181,7 @@ span {
 }
 
 .page_filter svg {
-    color: black;
+    color: var(--color1);
     fill: currentColor;
     width: 24px;
     height: 24px;
@@ -171,6 +196,7 @@ span {
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
     font-weight: bold;
+    color: var(--color1);
 }
 
 .part1 .page_filter .form #min,
@@ -191,8 +217,8 @@ span {
 .filter-btn {
     all: unset;
     margin-right: 5px;
-    background-color: black;
-    color: white;
+    background-color: var(--color1);
+    color: var(--bg2);
     cursor: pointer;
     font-weight: bold;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -200,16 +226,20 @@ span {
         sans-serif;
     font-size: 17px;
     padding: 5px 10px;
-    border: 1px solid black;
+    border: 1px solid var(--color1);
     border-radius: 10%;
 }
 
 .filter-btn:hover {
-    color: black;
-    background-color: white;
+    color: var(--color1);
+    background-color: var(--bg2);
 }
 
 .item-box a,
 .item-box .details a {
     text-decoration: none;
+}
+
+.filter_price {
+    color: var(--color1);
 }

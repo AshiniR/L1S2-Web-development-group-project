@@ -43,11 +43,6 @@ session_start();
                             <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
                         </svg>
                     </button>
-                    <button class="nav-bar-wishlist">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-                        </svg>
-                    </button>
                     <button class="nav-bar-cart" title="cart">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
@@ -301,6 +296,34 @@ session_start();
         head_shop.addEventListener('click', () => {
             window.location.href = "everything/everything.php";
         })
+
+        document.querySelector('.nav-bar-night').addEventListener('click', () => {
+            document.querySelector('.nav-bar-night').style.display = 'none';
+            document.querySelector('.nav-bar-day').style.display = 'inline-block';
+            localStorage.setItem('theme', 'dark');
+            document.body.setAttribute('theme', 'dark');
+        });
+        document.querySelector('.nav-bar-day').addEventListener('click', () => {
+            document.querySelector('.nav-bar-night').style.display = 'inline-block';
+            document.querySelector('.nav-bar-day').style.display = 'none';
+            localStorage.setItem('theme', 'light');
+            document.body.setAttribute('theme', 'light');
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.querySelector('.nav-bar-night').style.display = 'none';
+                document.querySelector('.nav-bar-day').style.display = 'inline-block';
+                document.body.setAttribute('theme', 'dark');
+
+            } else {
+                document.querySelector('.nav-bar-night').style.display = 'inline-block';
+                document.querySelector('.nav-bar-day').style.display = 'none';
+                document.body.setAttribute('theme', 'light');
+
+            }
+        });
     </script>
 </body>
 

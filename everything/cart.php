@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .cart {
-            background-color: rgb(239, 237, 237);
+            background-color: var(--bg1);
             position: fixed;
             height: 100vh;
             width: 38%;
@@ -46,6 +46,7 @@
         }
 
         .cart-text {
+            color: var(--color1);
             font-weight: bold;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -185,6 +186,12 @@
 
         .delete svg:hover {
             animation: colorH4 0.3s ease forwards;
+        }
+
+        .cart-item-details,
+        .delete svg,
+        .close-btn {
+            color: var(--color1);
         }
 
         @keyframes colorH4 {

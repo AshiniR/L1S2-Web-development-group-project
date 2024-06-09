@@ -1,3 +1,4 @@
+../
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,17 +6,17 @@
     <style>
         @keyframes footertext {
             from {
-                color: black;
+                color: var(--color1);
             }
 
             to {
-                color: rgb(70, 84, 255);
+                color: var(--color3);
             }
         }
 
         .footer {
-            background-color: rgb(221, 219, 219);
-            color: black;
+            background-color: var(--color4);
+            color: var(--color1);
             padding: 25px;
         }
 
@@ -33,7 +34,7 @@
         }
 
         .footer svg {
-            color: black;
+            color: var(--color1);
             height: 30px;
             width: 30px;
         }
@@ -105,7 +106,7 @@
         }
 
         .flinks a {
-            color: black;
+            color: var(--color1);
             text-decoration: none;
             font-size: 18px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -125,9 +126,9 @@
 
         @keyframes cc {
             to {
-                color: white;
-                background-color: black;
-                border: 1px solid black;
+                color: var(--bg2);
+                background-color: var(--color1);
+                border: 1px solid var(--color1);
             }
         }
     </style>
@@ -146,11 +147,11 @@
             </div>
             <div class="ul2">
                 <div class="li1">For Her</div><br>
-                <div><a href="women.php?search=T shirt">T Shirts</a></div>
-                <div><a href="women.php?search=top">Tops</a></div>
-                <div><a href="women.php?search=jean">Jeans</a></div>
-                <div><a href="women.php?search=skirt">Skirts</a></div>
-                <div><a href="women.php">Everything</a></div>
+                <div><a href="../women/women.php?search=T shirt">T Shirts</a></div>
+                <div><a href="../women/women.php?search=top">Tops</a></div>
+                <div><a href="../women/women.php?search=jean">Jeans</a></div>
+                <div><a href="../women/women.php?search=skirt">Skirts</a></div>
+                <div><a href="../women/women.php">Everything</a></div>
             </div>
             <div class="ul3">
                 <div class="ficons">
