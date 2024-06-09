@@ -71,7 +71,7 @@
                         if ((!empty($_GET['min'])) && (!empty($_GET['max']))) {
                             $min = $_GET['min'];
                             $max = $_GET['max'];
-                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND price BETWEEN $min AND $maxAND category='women'";
+                            $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND price BETWEEN $min AND $max AND category='women'";
                         } else if (!empty($_GET['min'])) {
                             $min = $_GET['min'];
                             $sql = "SELECT * FROM everything WHERE name LIKE '%$search_text%' AND $min<=price AND category='women'";
