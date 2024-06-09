@@ -18,15 +18,15 @@ Group Members -
 
 Workload -
 
-225520F - Home page without footer, search/filter functions , Move to top button, everything page, link pages
+225520F - Home page without footer, search/filter functions , Move to top button, everything page, cart functions, link pages
 
 225507X - Login system, footer, men page, link pages
 
 225517D - Item details page, link pages, women page
 
-225504K - Contact us page
+225504K - Contact us page, link pages
 
-224200R - About us page
+224200R - About us page, link pages
 
 (To fetch selling items, first need to import the database called fabrix)
 (Note - Some cart functions are still developing)
