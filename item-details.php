@@ -8,6 +8,8 @@
     <style>
         body {
             margin: 0;
+            transition: 0.5s;
+            background-color: var(--bg1);
         }
 
         a {

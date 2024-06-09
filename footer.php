@@ -1,4 +1,3 @@
-../
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,7 +155,7 @@
             <div class="ul3">
                 <div class="ficons">
                     <div class="form">
-                        <form action="../includes/subscribe.php">
+                        <form action="includes/subscribe.php">
                             <input type='email' class='textbox' id='email' name='email' placeholder='Email' required><br><br>
                             <button class="b" id="sub">Subscribe</button>
                         </form>
